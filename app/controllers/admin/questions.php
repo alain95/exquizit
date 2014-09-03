@@ -15,6 +15,10 @@ class Questions extends \core\controller{
 	}
  
 	public function index(){
+        if(\helpers\session::get('loggedIn') == false){
+            \helpers\url::redirect('');
+        }
+
 	    $data['title'] = 'Questions';
 	    $data['questions'] = $this->_questions->getQuestions();
         $data['categories'] = $this->_categories->getCategories();

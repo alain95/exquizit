@@ -13,6 +13,10 @@ class Categories extends \core\controller{
 	}
  
 	public function index(){
+        if(\helpers\session::get('loggedIn') == false){
+            \helpers\url::redirect('');
+        }
+
 	   $data['title'] = 'Kategorien verwalten';
        $data['categories'] = $this->_categories->getCategories();
 

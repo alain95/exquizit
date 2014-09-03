@@ -6,7 +6,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<link href="<?php echo \helpers\url::get_template_path();?>css/bootstrap.css" rel="stylesheet">
     <script src="<?php echo \helpers\url::get_template_path();?>js/game.js"></script>
-    <script src="<?php echo \helpers\url::get_template_path();?>js/login.js"></script>
     <script src="<?php echo \helpers\url::get_template_path();?>js/cheet.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="<?php echo \helpers\url::get_template_path();?>css/sticky-footer.css" />
@@ -28,6 +27,10 @@
                             <a class="navbar-brand" href="<?php echo DIR  ?>">exQuizIt</a>
                         </div>
                         <div class="navbar-collapse collapse navbar-responsive-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="admin/main"><span class="glyphicon glyphicon-cog"></span></a></li>
+
+                            </ul>
                         </div>
                     </div>
                 </div>

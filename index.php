@@ -60,14 +60,14 @@ use \core\router as Router,
 
 //define routes
 Router::get('', '\controllers\welcome@index');
-Router::post('', '\controllers\Login@logon');
 Router::any('quiz', '\controllers\quiz@index');
 Router::any('quiz/start', '\controllers\quiz@start');
 Router::post('quiz/check', '\controllers\quiz@checkAnswer');
 Router::post('quiz/joker', '\controllers\quiz@joker');
 Router::any('impressum', '\controllers\welcome@impressum');
 Router::any('register', '\controllers\register@index');
-
+Router::get('admin/login', '\controllers\admin\main@login');
+Router::post('admin/login', '\controllers\admin\main@login');
 Router::get('admin/main','\controllers\admin\main@index');
 Router::get('admin/questions','\controllers\admin\questions@index');
 Router::get('admin/categories','\controllers\admin\categories@index');

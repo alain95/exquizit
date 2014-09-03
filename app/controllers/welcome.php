@@ -22,23 +22,12 @@ class Welcome extends \core\controller{
 	 */
 	public function index(){
 
-        $userid = \helpers\session::get('userId');
-        if($userid == '')
-        {
-            $data['title'] = 'Welcome';
+        $data['title'] = 'Welcome';
 
-            View::rendertemplate('header',$data);
-            View::render('welcome/welcome',$data);
-            View::rendertemplate('footer',$data);
-        }
-        else
-        {
-            $data['title'] = 'Welcome';
+        View::rendertemplate('header',$data);
+        View::render('welcome/welcome',$data);
+        View::rendertemplate('footer',$data);
 
-            View::rendertemplate('header',$data);
-            View::render('welcome/loggedIn',$data);
-            View::rendertemplate('footer',$data);
-        }
 
 	}
 
