@@ -55,8 +55,7 @@ if (defined('ENVIRONMENT')){
 }
 
 //create alias for Router
-use \core\router as Router,
-    \helpers\url as Url;
+use \core\router as Router;
 
 //define routes
 Router::get('', '\controllers\welcome@index');
@@ -65,10 +64,15 @@ Router::any('quiz/start', '\controllers\quiz@start');
 Router::post('quiz/check', '\controllers\quiz@checkAnswer');
 Router::post('quiz/joker', '\controllers\quiz@joker');
 Router::any('impressum', '\controllers\welcome@impressum');
-Router::any('register', '\controllers\register@index');
+Router::get('register', '\controllers\register@index');
+Router::post('register', '\controllers\register@register');
+
+
 Router::get('admin/login', '\controllers\admin\main@login');
 Router::post('admin/login', '\controllers\admin\main@login');
 Router::get('admin/main','\controllers\admin\main@index');
+Router::get('admin/logout', '\controllers\admin\main@logout');
+
 Router::get('admin/questions','\controllers\admin\questions@index');
 Router::get('admin/categories','\controllers\admin\categories@index');
 Router::post('admin/categories','\controllers\admin\categories@manage');

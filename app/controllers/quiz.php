@@ -1,5 +1,7 @@
 <?php namespace controllers;
 use core\view as View;
+use helpers\Session as Session;
+use helpers\Url as Url;
 /**
  * Created by PhpStorm.
  * User: alain.buetler
@@ -24,19 +26,25 @@ class quiz extends \core\controller{
      * define page title and load template files
      */
     public function index(){
+        if(Session::get('userloggedIn') == false){
+            Url::redirect('');
+        }
 
         $data['title'] = 'Neues Spiel';
+        $data['username'] = Session::get('benutzername');
 
 
         $data['categories'] = $this->_categories->getCategories();
 
-        View::rendertemplate('header',$data);
+        View::rendertemplate('loggedInHeader',$data);
         View::render('game/start',$data);
         View::rendertemplate('footer',$data);
     }
 
     public  function start()
     {
+
+
         $where = '';
         $categories = array();
         foreach($_REQUEST as $key => $value)

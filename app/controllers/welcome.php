@@ -1,5 +1,7 @@
 <?php namespace controllers;
 use core\view as View;
+use \helpers\Url as Url;
+use \helpers\Session as Session;
 
 /*
  * Welcome controller
@@ -21,6 +23,9 @@ class Welcome extends \core\controller{
 	 * define page title and load template files
 	 */
 	public function index(){
+        if(Session::get('userloggedIn') == true){
+            Url::redirect('quiz');
+        }
 
         $data['title'] = 'Welcome';
 

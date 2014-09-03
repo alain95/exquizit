@@ -182,7 +182,7 @@
                                   </tr>
                                   <tr style="display:none;" class="alert-danger" id="confirmDeleteQuestion'.$row->frageID.'">
                                   <td colspan="2"></td>
-                                  <td>Wirklich löschen?</td>
+                                  <td><span style="color:#fff">Wirklich löschen?</span></td>
                                   <td></td>
                                   <td style="text-align:center"> <button id="edit" name="edit" value="'.$row->frageID.'" class="confirmDeleteQuestionButton btn btn-success btn-xs">
                                             <span class="glyphicon glyphicon-ok"></span>

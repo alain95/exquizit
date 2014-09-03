@@ -2,7 +2,8 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-body">
-                <h2>exQuizit - Neues Quiz</h2>
+                <h3>Neues Quiz</h3>
+                <h4>Hallo, <?php echo $data['username'] ?></h4>
                 <h4>Bitte wähle die gewünschten Fragekategorien, danach gehts gleich los!</h4><br>
             </div>
         </div>

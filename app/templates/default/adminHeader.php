@@ -31,6 +31,10 @@
                             <li><a href="<?php echo DIR ?>admin/categories">Kategorien</a></li>
                             <li><a href="<?php echo DIR ?>admin/questions">Fragen</a></li>
                         </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="logout"><span class="label label-danger "><span class="glyphicon glyphicon-log-out"></span></span></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

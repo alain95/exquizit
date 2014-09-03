@@ -3,13 +3,41 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Registrieren</h4></div>
             <div class="panel-body">
-                <form id="registerForm" class="form-horizontal" role="form">
+                <?php
+                if(isset($_GET['error']))
+                    switch($_GET['error'])
+                    {
+                        case 'pdnm':
+                            echo '
+                                <div class="alert alert-dismissable alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>Fehler!</strong><br>Passwörter stimmen nicht überein.
+                                </div>';
+                        case 'unna':
+                            echo '
+                                <div class="alert alert-dismissable alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>Fehler!</strong><br>Username nicht verfügbar.
+                                </div>';
+                        case 'db':
+                            echo '
+                                <div class="alert alert-dismissable alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>Fehler!</strong><br>Es ist ein Fehler beim Schreiben in die Datenbank aufgetreten bitte nochmals versuchen.
+                                </div>';
+
+
+
+                    }
+
+                ?>
+                <form id="registerForm" class="form-horizontal" role="form" method="post" action="">
                     <div class="form-group">
                         <label style="text-align: left" for="inputEmail3" class="col-sm-3 control-label">Benutzername</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                                <input class="form-control" type="text" placeholder="Benutzername eingeben" required>
+                                <input class="form-control" name="username" type="text" placeholder="Benutzername eingeben" required>
                             </div>
                         </div>
                     </div>
@@ -18,7 +46,7 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
-                                <input class="form-control" type="email" placeholder="E-Mail eingeben" required>
+                                <input class="form-control" name="email" type="email" placeholder="E-Mail eingeben" required>
                             </div>
                         </div>
                     </div>
@@ -27,7 +55,17 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Passwort eingeben" required>
+                                <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Passwort eingeben" required>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" style="text-align: left" class="col-sm-3 control-label">Passwort bestätigen</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                                <input type="password" name="password_confirm" class="form-control" id="inputPassword3" placeholder="Passwort bestätigen" required>
                             </div>
 
                         </div>

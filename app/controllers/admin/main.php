@@ -1,5 +1,7 @@
 <?php namespace controllers\admin;
 use \core\view as View;
+use \helpers\Session as Session;
+use \helpers\Url as Url;
  
 class Main extends \core\controller{
  
@@ -14,8 +16,8 @@ class Main extends \core\controller{
 	}
  
 	public function index(){
-        if(\helpers\session::get('loggedIn') == false){
-            \helpers\url::redirect('admin/login');
+        if(Session::get('loggedIn') == false){
+            Url::redirect('admin/login');
         }
 
 	   $data['title'] = 'Questions';
@@ -30,8 +32,8 @@ class Main extends \core\controller{
 
     public function login(){
 
-        if(\helpers\session::get('loggedIn') == true){
-            \helpers\url::redirect('admin/main');
+        if(Session::get('loggedIn') == true){
+            Url::redirect('admin/main');
         }
 
         if(isset($_POST['submit'])){
@@ -41,16 +43,16 @@ class Main extends \core\controller{
 
             $password = sha1($password);
             $db_hash = $this->_admin->get_hash($username);
+            $isadmin = $this->_admin->isAdmin($username);
 
-            if($db_hash == $password)
+            if($db_hash == $password && $isadmin)
             {
-                \helpers\session::set('loggedIn',true);
-                \helpers\url::redirect('admin/main');
+                Session::set('loggedIn',true);
+                Url::redirect('admin/main');
             }
             else
             {
-                print_r($db_hash);
-                die('wrong username or password ' . $username . " x " . $password);
+                Url::redirect('admin/login?error');
             }
 
         }
@@ -60,6 +62,12 @@ class Main extends \core\controller{
         $this->view->rendertemplate('header',$data);
         $this->view->render('admin/login',$data);
         $this->view->rendertemplate('footer',$data);
+    }
+
+    public function logout()
+    {
+        Session::destroy();
+        Url::redirect('');
     }
 
 

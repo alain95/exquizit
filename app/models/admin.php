@@ -20,4 +20,10 @@ class admin extends \core\model {
        $data = $this->_db->select("SELECT passwort FROM ".PREFIX."spieler WHERE benutzername = :username",array(':username' => $username));
        return $data[0]->passwort;
     }
+
+    public function isAdmin($username)
+    {
+        $data = $this->_db->select("SELECT admin FROM ".PREFIX."spieler WHERE benutzername = :username",array(':username' => $username));
+        return $data[0]->admin;
+    }
 } 
