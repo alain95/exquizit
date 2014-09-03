@@ -1,0 +1,551 @@
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 29, 2014 15:16PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_frage`, CONSTRAINT `exq_frage_ibfk_1` FOREIGN KEY (`kategorieID`) REFERENCES `exq_kategorie` (`kategorieID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 153</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(153): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(37): helpers\Database->delete('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(70): models\category->deleteCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(82): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<p>Error on Aug 29, 2014 15:01PM - require(app/views/register.php): failed to open stream: No such file or directory in C:\xampp\htdocs\exquizit\app\core\view.php on line 19</p><p>Error on Aug 29, 2014 13:34PM - Invalid argument supplied for foreach() in C:\xampp\htdocs\exquizit\app\views\game\quiz.php on line 40</p><p>Error on Aug 29, 2014 9:22AM - explode() expects parameter 2 to be string, array given in C:\xampp\htdocs\exquizit\app\helpers\database.php on line 176</p><h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 29, 2014 9:10AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM exq_kategorie WHERE kategorieID = '12'' at line 1</p>
+
+       <p><strong>Code:</strong> 42000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 195</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(195): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(41): helpers\Database->selectIn('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\quiz.php(46): models\category->getQuestionsCategories(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\quiz->start()
+#4 C:\xampp\htdocs\exquizit\index.php(79): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 29, 2014 9:05AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM exq_kategorie WHERE 0 = '2' OR 1 = '4'' at line 1</p>
+
+       <p><strong>Code:</strong> 42000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 195</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(195): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(41): helpers\Database->selectIn('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\quiz.php(46): models\category->getQuestionsCategories(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\quiz->start()
+#4 C:\xampp\htdocs\exquizit\index.php(79): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 29, 2014 9:01AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM exq_kategorie WHERE kategorieID IN('.?,?')' at line 1</p>
+
+       <p><strong>Code:</strong> 42000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 182</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(182): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(41): helpers\Database->selectIn('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\quiz.php(46): models\category->getQuestionsCategories(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\quiz->start()
+#4 C:\xampp\htdocs\exquizit\index.php(79): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 29, 2014 8:48AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[HY093]: Invalid parameter number: parameter was not defined</p>
+
+       <p><strong>Code:</strong> HY093</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 182</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(182): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(36): helpers\Database->selectIn('SELECT * FROM e...', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\quiz.php(46): models\category->getQuestions(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\quiz->start()
+#4 C:\xampp\htdocs\exquizit\index.php(79): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 27, 2014 10:30AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_frage`, CONSTRAINT `exq_frage_ibfk_1` FOREIGN KEY (`kategorieID`) REFERENCES `exq_kategorie` (`kategorieID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(31): helpers\Database->delete('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(70): models\category->deleteCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(79): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<p>Error on Aug 22, 2014 16:57PM - array_rand() expects parameter 1 to be array, object given in C:\xampp\htdocs\exquizit\app\views\game\quiz.php on line 11</p><h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 20, 2014 11:07AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`quiz`.`exq_frage`, CONSTRAINT `exq_frage_ibfk_1` FOREIGN KEY (`kategorieID`) REFERENCES `exq_kategorie` (`kategorieID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 113</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(113): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(24): helpers\Database->update('exq_frage', Array, Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\questions.php(90): models\Questions->updateQuestion(Array, Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Questions->update()
+#4 C:\xampp\htdocs\exquizit\index.php(79): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 20, 2014 10:40AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_frage`, CONSTRAINT `exq_frage_ibfk_1` FOREIGN KEY (`kategorieID`) REFERENCES `exq_kategorie` (`kategorieID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(31): helpers\Database->delete('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(70): models\category->deleteCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(79): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 20, 2014 10:34AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42S22]: Column not found: 1054 Unknown column 'contactID' in 'where clause'</p>
+
+       <p><strong>Code:</strong> 42S22</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 113</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(113): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(24): helpers\Database->update('exq_frage', Array, Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\questions.php(90): models\Questions->updateQuestion(Array, Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Questions->update()
+#4 C:\xampp\htdocs\exquizit\index.php(79): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 20, 2014 9:15AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_frage`, CONSTRAINT `exq_frage_ibfk_1` FOREIGN KEY (`kategorieID`) REFERENCES `exq_kategorie` (`kategorieID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(31): helpers\Database->delete('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(70): models\category->deleteCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(78): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 20, 2014 8:26AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'kategorieID' in field list is ambiguous</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 47</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(47): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(9): helpers\Database->select('SELECT frageID,...')
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\questions.php(19): models\Questions->getQuestions()
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Questions->index()
+#4 C:\xampp\htdocs\exquizit\index.php(78): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 06, 2014 17:11PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_antwort`, CONSTRAINT `exq_antwort_ibfk_1` FOREIGN KEY (`frageID`) REFERENCES `exq_frage` (`frageID`) ON DELETE NO ACTION ON UPDATE NO ACTION)</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(23): helpers\Database->delete('exq_frage', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\questions.php(87): models\Questions->deleteQuestion(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Questions->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(75): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 06, 2014 17:10PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_antwort`, CONSTRAINT `exq_antwort_ibfk_1` FOREIGN KEY (`frageID`) REFERENCES `exq_frage` (`frageID`) ON DELETE NO ACTION ON UPDATE NO ACTION)</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(23): helpers\Database->delete('exq_frage', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\questions.php(84): models\Questions->deleteQuestion(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Questions->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(75): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 06, 2014 17:08PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_antwort`, CONSTRAINT `exq_antwort_ibfk_1` FOREIGN KEY (`frageID`) REFERENCES `exq_frage` (`frageID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(23): helpers\Database->delete('exq_frage', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\questions.php(84): models\Questions->deleteQuestion(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Questions->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(75): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 06, 2014 17:04PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_antwort`, CONSTRAINT `exq_antwort_ibfk_1` FOREIGN KEY (`frageID`) REFERENCES `exq_frage` (`frageID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(23): helpers\Database->delete('exq_frage', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\questions.php(86): models\Questions->deleteQuestion(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Questions->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(75): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 06, 2014 17:03PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_antwort`, CONSTRAINT `exq_antwort_ibfk_1` FOREIGN KEY (`frageID`) REFERENCES `exq_frage` (`frageID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(23): helpers\Database->delete('exq_frage', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\questions.php(86): models\Questions->deleteQuestion(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Questions->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(75): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 05, 2014 15:06PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_frage`, CONSTRAINT `exq_frage_ibfk_1` FOREIGN KEY (`kategorieID`) REFERENCES `exq_kategorie` (`kategorieID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(31): helpers\Database->delete('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(70): models\category->deleteCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(75): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Aug 05, 2014 15:06PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_frage`, CONSTRAINT `exq_frage_ibfk_1` FOREIGN KEY (`kategorieID`) REFERENCES `exq_kategorie` (`kategorieID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 151</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(151): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(31): helpers\Database->delete('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(70): models\category->deleteCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(75): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<p>Error on Aug 05, 2014 10:40AM - Invalid argument supplied for foreach() in C:\xampp\htdocs\exquizit\app\views\admin\question.php on line 63</p><h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Jul 11, 2014 11:59AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42000]: Syntax error or access violation: 1115 Unknown character set: 'utf8_general_ci'</p>
+
+       <p><strong>Code:</strong> 42000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 63</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(63): PDO->query('SET NAMES 'utf8...')
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(18): helpers\Database->insert('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(35): models\category->addCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(74): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Jul 11, 2014 11:58AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42000]: Syntax error or access violation: 1115 Unknown character set: 'utf-8'</p>
+
+       <p><strong>Code:</strong> 42000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 63</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(63): PDO->query('SET NAMES 'utf-...')
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(18): helpers\Database->insert('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(35): models\category->addCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(74): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Jul 11, 2014 11:56AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42000]: Syntax error or access violation: 1115 Unknown character set: 'UTF'</p>
+
+       <p><strong>Code:</strong> 42000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 63</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(63): PDO->query('SET NAMES UTF-8')
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(18): helpers\Database->insert('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(35): models\category->addCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(74): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<p>Error on Jul 11, 2014 11:42AM - utf8_encode() expects parameter 1 to be string, array given in C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php on line 47</p><p>Error on Jul 11, 2014 11:31AM - require(app/views/admin/questions.php): failed to open stream: No such file or directory in C:\xampp\htdocs\exquizit\app\core\view.php on line 19</p><h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Jul 10, 2014 11:22AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`quiz`.`exq_frage`, CONSTRAINT `exq_frage_ibfk_1` FOREIGN KEY (`kategorieID`) REFERENCES `exq_kategorie` (`kategorieID`))</p>
+
+       <p><strong>Code:</strong> 23000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 149</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(149): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(27): helpers\Database->delete('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(68): models\category->deleteCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(73): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Jul 10, 2014 10:49AM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'</p>
+
+       <p><strong>Code:</strong> 42S22</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 149</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(149): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\category.php(27): helpers\Database->delete('exq_kategorie', Array)
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php(56): models\category->deleteCategory(Array)
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Categories->manage()
+#4 C:\xampp\htdocs\exquizit\index.php(73): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<p>Error on Jul 10, 2014 10:14AM - utf8_encode() expects parameter 1 to be string, array given in C:\xampp\htdocs\exquizit\app\controllers\admin\categories.php on line 28</p><p>Error on Jul 09, 2014 21:20PM - require(app/views/admin/categories/new.php): failed to open stream: No such file or directory in C:\xampp\htdocs\exquizit\app\core\view.php on line 19</p><p>Error on Jul 09, 2014 21:18PM - require(app/views/admin/categories/new.php): failed to open stream: No such file or directory in C:\xampp\htdocs\exquizit\app\core\view.php on line 19</p><h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Jul 09, 2014 20:23PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'JOINexq_kategorie k ON f.kategorieID = k.kategorieID' at line 1</p>
+
+       <p><strong>Code:</strong> 42000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 47</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(47): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(9): helpers\Database->select('SELECT frageID,...')
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\question.php(17): models\Questions->getQuestions()
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Question->index()
+#4 C:\xampp\htdocs\exquizit\index.php(70): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<h3>Exception information:</h3>
+
+       <p><strong>Date:</strong> Jul 09, 2014 20:23PM</p>
+
+       <p><strong>Message:</strong> SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'JOINexq_kategorie k ON f.kategorieID = k.kategorieID' at line 1</p>
+
+       <p><strong>Code:</strong> 42000</p>
+
+       <p><strong>File:</strong> C:\xampp\htdocs\exquizit\app\helpers\database.php</p>
+
+       <p><strong>Line:</strong> 47</p>
+
+       <h3>Stack trace:</h3>
+
+       <pre>#0 C:\xampp\htdocs\exquizit\app\helpers\database.php(47): PDOStatement->execute()
+#1 C:\xampp\htdocs\exquizit\app\models\questions.php(9): helpers\Database->select('SELECT frageID,...')
+#2 C:\xampp\htdocs\exquizit\app\controllers\admin\question.php(17): models\Questions->getQuestions()
+#3 C:\xampp\htdocs\exquizit\app\core\router.php(103): controllers\admin\Question->index()
+#4 C:\xampp\htdocs\exquizit\index.php(70): core\Router::dispatch()
+#5 {main}</pre>
+
+       <hr />
+<p>Error on Jul 09, 2014 17:22PM - Invalid argument supplied for foreach() in C:\xampp\htdocs\exquizit\app\views\question\question.php on line 6</p><p>Error on Jul 09, 2014 17:22PM - Invalid argument supplied for foreach() in C:\xampp\htdocs\exquizit\app\views\question\question.php on line 6</p>
