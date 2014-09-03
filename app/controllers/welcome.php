@@ -39,18 +39,6 @@ class Welcome extends \core\controller{
 
     }
 
-    public function register()
-    {
-        $data['title'] = 'Registrieren';
 
-        View::rendertemplate('header',$data);
-        View::render('welcome/register',$data);
-        View::rendertemplate('footer',$data);
-    }
 
-    public function newUser()
-    {
-
-    }
-	
 }

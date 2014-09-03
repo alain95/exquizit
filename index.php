@@ -65,7 +65,7 @@ Router::any('quiz/start', '\controllers\quiz@start');
 Router::post('quiz/check', '\controllers\quiz@checkAnswer');
 Router::post('quiz/joker', '\controllers\quiz@joker');
 Router::any('impressum', '\controllers\welcome@impressum');
-Router::any('register', '\controllers\welcome@register');
+Router::any('register', '\controllers\register@index');
 
 Router::get('admin/main','\controllers\admin\main@index');
 Router::get('admin/questions','\controllers\admin\questions@index');
