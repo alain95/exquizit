@@ -59,7 +59,8 @@ use \core\router as Router,
     \helpers\url as Url;
 
 //define routes
-Router::any('', '\controllers\welcome@index');
+Router::get('', '\controllers\welcome@index');
+Router::post('', '\controllers\Login@logon');
 Router::any('quiz', '\controllers\quiz@index');
 Router::any('quiz/start', '\controllers\quiz@start');
 Router::post('quiz/check', '\controllers\quiz@checkAnswer');

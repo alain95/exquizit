@@ -15,4 +15,14 @@ class user  extends \core\model {
     {
 
     }
+
+    public function getUserData()
+    {
+
+    }
+
+    public function getPassword($username)
+    {
+        $this->_db->select("SELECT passwort FROM ".PREFIX."spieler WHERE benutzername = :username",array(':username' => $username));
+    }
 }

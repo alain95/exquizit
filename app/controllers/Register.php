@@ -12,6 +12,11 @@ use core\view as View;
 
 class Register extends \core\controller{
 
+    public function __construct(){
+        parent::__construct();
+        $this->_user = new \models\user();
+    }
+
     public function index()
     {
         $data['title'] = 'Registrieren';
