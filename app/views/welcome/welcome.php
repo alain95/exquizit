@@ -11,6 +11,13 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Login</h4></div>
             <div class="panel-body">
+                <?php
+                if(isset($_GET['error']))
+                    echo '<div class="alert alert-dismissable alert-danger">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>Fehler!</strong><br>Benutzername und Passwort stimmen nicht überein.
+                         </div>';
+                ?>
                 <form id="registerForm" class="form-horizontal" role="form" action="" method="post">
                     <div class="form-group">
                         <label style="text-align: left" for="inputEmail3" class="col-sm-3 control-label">Benutzername</label>

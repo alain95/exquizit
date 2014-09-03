@@ -3,7 +3,6 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <h3>Neues Quiz</h3>
-                <h4>Hallo, <?php echo $data['username'] ?></h4>
                 <h4>Bitte wähle die gewünschten Fragekategorien, danach gehts gleich los!</h4><br>
             </div>
         </div>
@@ -62,10 +61,10 @@
         </div>
     </div>
 </div>
-<div class="row">
+<div class="row" style="padding-bottom: 10px">
     <div class="col-lg-4 col-lg-offset-4 text-center">
-        <form id="startGameForm" method="post" action="quiz/start">
-            <button id="startGame" class="btn btn-success btn-lg">Quiz starten</button>
+        <form id="startGameForm">
+            <button id="startGameBtn" class="btn btn-success btn-lg">Quiz starten</button>
         </form>
     </div>
 </div>

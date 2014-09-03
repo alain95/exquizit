@@ -23,7 +23,7 @@ class Welcome extends \core\controller{
 	 * define page title and load template files
 	 */
 	public function index(){
-        if(Session::get('userloggedIn') == true){
+        if(Session::get('userLoggedIn') == true){
             Url::redirect('quiz');
         }
 

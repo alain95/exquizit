@@ -26,7 +26,7 @@ class quiz extends \core\controller{
      * define page title and load template files
      */
     public function index(){
-        if(Session::get('userloggedIn') == false){
+        if(Session::get('userLoggedIn') == false){
             Url::redirect('');
         }
 
@@ -43,7 +43,9 @@ class quiz extends \core\controller{
 
     public  function start()
     {
-
+        if(Session::get('userLoggedIn') == false){
+            Url::redirect('');
+        }
 
         $where = '';
         $categories = array();

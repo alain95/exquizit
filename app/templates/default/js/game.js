@@ -66,6 +66,29 @@ $(document).ready(function(){
                 })
             })
     })
+
+    $("#startGameForm").submit(function(event)
+    {
+        event.preventDefault();
+        data = $(this).serialize();
+
+        if(data == '')
+        {
+
+        }
+        else
+        {
+            $.ajax({
+                type: "POST",
+                url: 'quiz/start',
+                data: data
+            }).done(function()
+                {
+
+                })
+        }
+    })
+
 })
 
 function removeCategoryButtonClick(id)

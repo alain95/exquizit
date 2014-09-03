@@ -21,6 +21,12 @@ class user extends \core\model {
         return $data[0]->spielerID;
     }
 
+    public function get_hash($username)
+    {
+        $data = $this->_db->select("SELECT passwort FROM ".PREFIX."spieler WHERE benutzername = :username",array(':username' => $username));
+        return $data[0]->passwort;
+    }
+
     function add($data)
     {
         $this->_db->insert(PREFIX.'spieler',$data);
