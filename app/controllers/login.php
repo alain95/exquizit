@@ -9,7 +9,7 @@
 namespace controllers;
 
 use \helpers\Session as Session;
-use \helpers\Url as Url;
+use \helpers\url as url;
 
 
 class login extends \core\controller{
@@ -28,13 +28,17 @@ class login extends \core\controller{
 
         if($db_hash == $password)
         {
+            $userID = $this->_user->getUserID($username);
+
             Session::set('userLoggedIn',true);
+            Session::set('userID', $userID);
             Session::set('benutzername', $username);
-            Url::redirect('quiz');
+
+            url::redirect('quiz');
         }
         else
         {
-            Url::redirect('?error');
+            url::redirect('?error');
         }
     }
 } 

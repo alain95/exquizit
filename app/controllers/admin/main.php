@@ -1,7 +1,7 @@
 <?php namespace controllers\admin;
 use \core\view as View;
 use \helpers\Session as Session;
-use \helpers\Url as Url;
+use \helpers\url as url;
  
 class Main extends \core\controller{
  
@@ -16,8 +16,10 @@ class Main extends \core\controller{
 	}
  
 	public function index(){
+
+
         if(Session::get('loggedIn') == false){
-            Url::redirect('admin/login');
+            url::redirect('admin/login');
         }
 
 	   $data['title'] = 'Questions';
@@ -33,7 +35,7 @@ class Main extends \core\controller{
     public function login(){
 
         if(Session::get('loggedIn') == true){
-            Url::redirect('admin/main');
+            url::redirect('admin/main');
         }
 
         if(isset($_POST['submit'])){
@@ -48,11 +50,11 @@ class Main extends \core\controller{
             if($db_hash == $password && $isadmin)
             {
                 Session::set('loggedIn',true);
-                Url::redirect('admin/main');
+                url::redirect('admin/main');
             }
             else
             {
-                Url::redirect('admin/login?error');
+                url::redirect('admin/login?error');
             }
 
         }
@@ -67,7 +69,7 @@ class Main extends \core\controller{
     public function logout()
     {
         Session::destroy();
-        Url::redirect('');
+        url::redirect('');
     }
 
 

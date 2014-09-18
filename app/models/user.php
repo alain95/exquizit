@@ -15,11 +15,6 @@ class user extends \core\model {
         parent::__construct();
     }
 
-    function usernameAvailable($username)
-    {
-        $data = $this->_db->select("SELECT spielerID FROM ".PREFIX."spieler WHERE benutzername = :username",array(':username' => $username));
-        return $data[0]->spielerID;
-    }
 
     public function get_hash($username)
     {
@@ -31,5 +26,12 @@ class user extends \core\model {
     {
         $this->_db->insert(PREFIX.'spieler',$data);
         return $this->_db->lastInsertId('spielerID');
+    }
+
+
+    function getUserID($username)
+    {
+        $data = $this->_db->select("SELECT spielerID FROM ".PREFIX."spieler WHERE benutzername = :username",array(':username' => $username));
+        return $data[0]->spielerID;
     }
 } 

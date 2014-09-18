@@ -1,6 +1,6 @@
 <?php namespace controllers\admin;
 use \core\view as View;
-use \helpers\Url as Url;
+use \helpers\url as url;
 use \helpers\Session as Session;
  
 class Questions extends \core\controller{
@@ -18,7 +18,7 @@ class Questions extends \core\controller{
  
 	public function index(){
         if(Session::get('loggedIn') == false){
-            Url::redirect('');
+            url::redirect('');
         }
 
 	    $data['title'] = 'Questions';

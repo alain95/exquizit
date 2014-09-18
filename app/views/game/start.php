@@ -46,6 +46,10 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-list"></span></span>Quiz Kategorien</h4></div>
             <div class="panel-body">
+                <div id="errorNoCategory" style="display: none" class="alert alert-dismissable alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Fehler!</strong><br>Mindestens eine Kategorie muss ausgewählt sein.
+                </div>
                 <table class="table table-striped">
                     <thead>
                     <tr>

@@ -40,6 +40,8 @@ $(document).ready(function(){
                     $(selector).removeClass('btn-info');
                     $(selector).addClass('btn-success');
                     $('.answer').attr("disabled", "disabled");
+                    $('#gameButtons').hide();
+                    $('#nextRoundButton').show();
                 }
                 else
                 {
@@ -74,7 +76,7 @@ $(document).ready(function(){
 
         if(data == '')
         {
-
+            $('#errorNoCategory').show();
         }
         else
         {
@@ -82,9 +84,10 @@ $(document).ready(function(){
                 type: "POST",
                 url: 'quiz/start',
                 data: data
-            }).done(function()
+            }).done(function(data)
                 {
-
+                   $('#mainContainer').html(data);
+                    history.pushState(null, document.title, 'quiz/start');
                 })
         }
     })

@@ -20,7 +20,7 @@
 </head>
 <body>
     <div id="easter" style="display: none; width: 100%; height: 1100px; background-repeat: repeat; background:url('<?php echo \helpers\url::get_template_path();?>images/pika.gif')"></div>
-    <div class="container">
+    <div id="mainContainer" class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="navbar navbar-default">

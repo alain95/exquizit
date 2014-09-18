@@ -8,7 +8,7 @@
 
 namespace controllers;
 use core\view as View;
-use \helpers\Url as Url;
+use \helpers\url as url;
 use \helpers\Session as Session;
 
 
@@ -33,7 +33,7 @@ class register extends \core\controller{
     {
         if($_REQUEST['password'] == $_REQUEST['password_confirm'])
         {
-           if($this->user->usernameAvailable($_REQUEST['username']) == '')
+           if($this->user->getUserID($_REQUEST['username']) == '')
            {
                $postdata = array(
                    'benutzername' => $_REQUEST['username'],
@@ -44,24 +44,24 @@ class register extends \core\controller{
                $id = $this->user->add($postdata);
                if($id == '')
                {
-                   Url::redirect('register?error=db');
+                   url::redirect('register?error=db');
                }
                else
                {
                    Session::set('userloggedIn',true);
                    Session::set('benutzerID',$id);
                    Session::set('benutzername', $_REQUEST['username']);
-                   Url::redirect('quiz');
+                   url::redirect('quiz');
                }
            }
            else
            {
-              Url::redirect('register?error=unna');
+              url::redirect('register?error=unna');
            }
         }
         else
         {
-            Url::redirect('register?error=pdnm');
+            url::redirect('register?error=pdnm');
         }
     }
 

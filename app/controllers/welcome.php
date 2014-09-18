@@ -1,6 +1,6 @@
 <?php namespace controllers;
 use core\view as View;
-use \helpers\Url as Url;
+use \helpers\url as url;
 use \helpers\Session as Session;
 
 /*
@@ -24,7 +24,7 @@ class Welcome extends \core\controller{
 	 */
 	public function index(){
         if(Session::get('userLoggedIn') == true){
-            Url::redirect('quiz');
+            url::redirect('quiz');
         }
 
         $data['title'] = 'Welcome';

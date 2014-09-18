@@ -4,6 +4,11 @@ class Questions extends \core\model {
 	function __construct(){
 		parent::__construct();
 	}
+
+    public function getQuestion($id)
+    {
+        return $this->_db->select("SELECT * FROM ".PREFIX."frage WHERE frageID = :id", array(':id' => $id));
+    }
 	
 	public function getQuestions(){
 		return $this->_db->select('SELECT frageID, bezeichnung, text, f.kategorieID FROM '.PREFIX.'frage f INNER JOIN '.PREFIX.'kategorie k ON f.kategorieID = k.kategorieID ORDER BY f.frageID DESC');
@@ -34,8 +39,4 @@ class Questions extends \core\model {
         return $this->_db->select("SELECT a.text, a.antwortID, a.korrekt FROM ".PREFIX."antwort a INNER JOIN ".PREFIX."frage f ON f.frageID = a.frageID WHERE a.frageID = :id", array(':id' => $id));
     }
 
-    public function getAnswersQuestions($where)
-    {
-        return $this->_db->selectIn(PREFIX.'antwort', 'frageID', $where);
-    }
 }

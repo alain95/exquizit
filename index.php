@@ -71,7 +71,7 @@ Router::post('register', '\controllers\register@register');
 
 Router::get('admin/login', '\controllers\admin\main@login');
 Router::post('admin/login', '\controllers\admin\main@login');
-Router::get('admin/main','\controllers\admin\main@index');
+Router::any('admin/main','\controllers\admin\main@index');
 Router::get('admin/logout', '\controllers\admin\main@logout');
 
 Router::get('admin/questions','\controllers\admin\questions@index');

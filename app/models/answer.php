@@ -27,7 +27,8 @@ class answer extends \core\model {
 
     public  function isCorrect($id)
     {
-        return $this->_db->select("SELECT antwortID, korrekt FROM ".PREFIX."antwort WHERE antwortID = :id", array(':id' => $id));
+        $data = $this->_db->select("SELECT antwortID, korrekt, frageID FROM ".PREFIX."antwort WHERE antwortID = :id", array(':id' => $id));
+        return $data[0];
     }
 
     public function getWrongAnswers($id)
