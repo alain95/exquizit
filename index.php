@@ -73,6 +73,7 @@ Router::get('admin/login', '\controllers\admin\main@login');
 Router::post('admin/login', '\controllers\admin\main@login');
 Router::any('admin/main','\controllers\admin\main@index');
 Router::get('admin/logout', '\controllers\admin\main@logout');
+Router::get('logout', '\controllers\admin\main@logout');
 
 Router::get('admin/questions','\controllers\admin\questions@index');
 Router::get('admin/categories','\controllers\admin\categories@index');

@@ -165,7 +165,7 @@ class quiz extends \core\controller{
 
 
 
-        View::rendertemplate('header',$data);
+        View::rendertemplate('loggedInHeader',$data);
         View::render('game/quiz',$data);
         View::rendertemplate('footer',$data);
     }
