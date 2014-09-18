@@ -130,39 +130,39 @@ class quiz extends \core\controller{
             $playedQuestions = $this->_game->getRounds($spielID);
 
 
-            $data['playedQuestions'] = array();
+            $data['playedQuestions'] = $playedQuestions;
 
             $questionIDs = array();
-            for ($i = 0; $i < count($questions); ++$i) {
-                foreach($questions[$i] as $question)
-                {
-                    array_push($questionIDs, $question->frageID);
-                }
+            foreach($questions as $question)
+            {
+                array_push($questionIDs, $question->frageID);
             }
 
-            $availableQuestions = array_diff($questionIDs, $playedQuestions);
 
-            $data['availableQuestions'] = $availableQuestions;
+            $playedQuestionsIDs = array();
+            foreach($playedQuestions as $question)
+            {
+                array_push($playedQuestionsIDs, $question->frageID);
+            }
+
+
+            $availableQuestions = array_diff($questionIDs, $playedQuestionsIDs);
 
             $item = array_rand($availableQuestions);
+            $id = $availableQuestions[$item];
 
-            $this->_questions->getQuestion($item);
 
-
+            $question = $this->_questions->getQuestion($id);
             $answers = $this->_questions->getAnswers($question->frageID);
+
             shuffle($answers);
 
+            $game = $this->_game->getGame($spielID);
+            $data['points'] = $game->punktzahl;
 
             $data['answers'] = $answers;
-
             $data['question'] = $question;
-
-}
-
-
-
-
-
+        }
 
 
         View::rendertemplate('loggedInHeader',$data);
@@ -179,18 +179,60 @@ class quiz extends \core\controller{
         $antwortID = $result->antwortID;
         $frageID = $result->frageID;
         $gameID = Session::get('spielID');
+        $question = $this->_questions->getQuestion($frageID);
+
+
+
 
         if($korrekt)
         {
+            $richtigBeantwortet = $question->richtigBeantwortet;
+            $beantwortet = $question->beantwortet;
+            ++$richtigBeantwortet;
+            ++$beantwortet;
+
+            $questionData = array(
+                'beantwortet' => $beantwortet,
+                'richtigBeantwortet' => $richtigBeantwortet
+            );
+
+            $where = array('frageID' => $frageID);
+
+            $this->_questions->updateQuestion($questionData, $where);
+
             $roundData = array(
                 'spielID' => $gameID,
                 'frageID' => $frageID
             );
 
             $this->_game->addRound($roundData);
+
+            $game = $this->_game->getGame($gameID);
+            $points = $game->punktzahl;
+            $points = $points + 30;
+
+            $gameData = array(
+              'punktzahl' => $points
+            );
+
+            $where = array('spielID' => $gameID);
+
+            $this->_game->updateGame($gameData, $where);
+
         }
         else
         {
+            $beantwortet = $question->beantwortet;
+            ++$beantwortet;
+
+            $questionData = array(
+                'beantwortet' => $beantwortet
+            );
+
+            $where = array('frageID' => $frageID);
+            $this->_questions->updateQuestion($questionData, $where);
+
+
             $roundData = array(
                 'spielID' => $gameID,
                 'frageID' => $frageID

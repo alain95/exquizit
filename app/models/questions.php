@@ -7,7 +7,8 @@ class Questions extends \core\model {
 
     public function getQuestion($id)
     {
-        return $this->_db->select("SELECT * FROM ".PREFIX."frage WHERE frageID = :id", array(':id' => $id));
+        $data = $this->_db->select("SELECT * FROM ".PREFIX."frage WHERE frageID = :id", array(':id' => $id));
+        return $data[0];
     }
 	
 	public function getQuestions(){
@@ -17,7 +18,6 @@ class Questions extends \core\model {
     public function  getRecentQuestions(){
         return $this->_db->select('SELECT text FROM '.PREFIX.'frage ORDER BY frageID DESC LIMIT 5');
     }
-
 
     public function addQuestion($data)
     {

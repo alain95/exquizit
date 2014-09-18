@@ -48,6 +48,7 @@ $(document).ready(function(){
                     $(selector).removeClass('btn-info');
                     $(selector).addClass('btn-danger');
                     $('.answer').attr("disabled", "disabled");
+                    $('#gameButtons').hide();
                 }
             })
     })

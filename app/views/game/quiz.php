@@ -9,7 +9,7 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Punkte</h4></div>
             <div class="panel-body">
-                <h5><span class="label label-primary">0</span></h5>
+                <h5><span class="label label-primary"><?php echo isset($data['points']) ? $data['points'] : 0 ?></span></h5>
             </div>
         </div>
     </div>

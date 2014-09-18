@@ -31,6 +31,17 @@ class game extends \core\model {
         $this->_db->insert(PREFIX.'spiel2kategorie',$data);
     }
 
+    public function getGame($id)
+    {
+        $data = $this->_db->select("SELECT * FROM ".PREFIX."spiel WHERE spielID = :id", array(':id' => $id));
+        return $data[0];
+    }
+
+    public function updateGame($data, $where)
+    {
+        $this->_db->update(PREFIX.'spiel',$data, $where);
+    }
+
     public function getCategories($id)
     {
         $data = $this->_db->select("SELECT kategorieID FROM ".PREFIX."spiel2kategorie WHERE spielID = :id", array(':id' => $id));
@@ -39,7 +50,7 @@ class game extends \core\model {
 
     public function addRound($data)
     {
-
+        $this->_db->insert(PREFIX.'runde',$data);
     }
 
     public function getRounds($id)
