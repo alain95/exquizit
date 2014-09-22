@@ -25,7 +25,7 @@
             foreach($data['answers'] as $answer)
             {
                 echo '<div class="col-lg-6" style="margin-top:10px">
-                        <button id="answer'.$answer->antwortID.'" value="'.$answer->antwortID.'" class="answer btn btn-lg btn-block btn-primary">'.$answer->text.'</button>
+                        <button style="white-space: normal;" id="answer'.$answer->antwortID.'" value="'.$answer->antwortID.'" class="answer btn btn-lg btn-block btn-primary">'.$answer->text.'</button>
                       </div>';
                 $i++;
                 if($i==2)
@@ -35,12 +35,12 @@
             }
         ?>
         </div>
-        <div style="margin-top: 23px" class="row">
+        <div style="margin-top: 23px" class="row" id="jokerButtons">
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <button style="width: 80px;" id="fiftyfifty" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning" <?php echo $data['fiftyfifty']; ?>>50/50</button>
-                        <button style="width: 80px;" class="btn btn-warning"><span class="glyphicon glyphicon-share-alt"></span></button>
+                        <button style="width: 80px;" title="Fifty Fifty Joker" id="fiftyfifty" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning" <?php echo $data['fiftyfifty']; ?>>50/50</button>
+                        <button style="width: 80px;" title="Überspringen Joker" class="btn btn-warning"><span class="glyphicon glyphicon-share-alt"></span></button>
                     </div>
                 </div>
             </div>
@@ -53,8 +53,9 @@
             <div style="display: none" id="nextRoundButton" class="col-lg-12 text-center">
                 <button onClick="location.reload();" class="btn btn-lg btn-primary">Nächste Frage</button>
             </div>
-            <div style="display: none" id="lostGame" class="col-lg-12 text-center">
-                <button class="btn btn-lg btn-danger">Das war leider falsch! Spiel verloren. Zurück zur <a href="/quiz">Übersicht</a></button>
+            <div style="display: none; margin-top:23px" id="lostGame" class="col-lg-12 text-center">
+               <div class="alert alert-danger">Das war leider falsch! Spiel verloren</div>
+                <button onclick="location.href='/quiz'" class="btn btn-lg btn-primary">Neues Spiel</button>
             </div>
         </div>
     </div>
@@ -88,5 +89,4 @@
         </div>
     </div>
 </div>
-<?php echo print_r($data['question']) ?>
 

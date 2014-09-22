@@ -42,6 +42,11 @@ class category  extends \core\model {
         return $this->_db->select("SELECT * FROM ".PREFIX."frage f INNER JOIN ".PREFIX."kategorie k ON k.kategorieID = f.kategorieID WHERE f.kategorieID = :id", array(':id' => $id));
     }
 
+    public function getGames($id)
+    {
+        return $this->_db->select("SELECT * FROM ".PREFIX."spiel2kategorie s2k INNER JOIN ".PREFIX."kategorie k ON s2k.kategorieID = k.kategorieID WHERE s2k.kategorieID = :id", array(':id' => $id));
+    }
+
     public function getQuestionsCategories($where)
     {
         return $this->_db->selectIn(PREFIX.'frage', 'kategorieID', $where);

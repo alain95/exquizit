@@ -126,7 +126,6 @@ class Questions extends \core\controller{
         );
         $where = array('antwortID' => $_REQUEST['wrongAnswer3ID']);
         $this->_answers->updateAnswer($postdata, $where);
-
     }
 
     public function delete()
@@ -138,6 +137,15 @@ class Questions extends \core\controller{
             $this->_answers->deleteAnswer($postdata);
 
             $this->_questions->deleteQuestion($postdata);
+
+        $data['categories'] = $this->_categories->getCategories();
+        $data['questions'] = $this->_questions->getQuestions();
+        $data['answers'] = $this->_answers->getAnswers();
+
+
+        View::rendertemplate('adminHeader',$data);
+        View::render('admin/question',$data);
+        View::rendertemplate('footer',$data);
 
     }
 

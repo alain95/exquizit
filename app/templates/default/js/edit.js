@@ -87,9 +87,9 @@ $(document).ready(function(){
             type: "POST",
             url: 'questions/delete',
             data: { delete: true, id: id}
-        }).done(function()
-            {
-                location.reload()
+        }).done(function(data)
+        {
+            $('#mainContainer').html(data);
             })
     })
 

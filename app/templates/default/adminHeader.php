@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-type" value="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
     <title><?php echo $data['title'].' - '.SITETITLE; //SITETITLE defined in index.php?></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link href="<?php echo \helpers\url::get_template_path();?>css/bootstrap.css" rel="stylesheet">

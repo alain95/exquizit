@@ -60,9 +60,21 @@ class Categories extends \core\controller{
 
             $questions = $this->_categories->getQuestions($_REQUEST['id']);
 
+            $games = $this->_categories->getGames(($_REQUEST['id']));
+
             if(!empty($questions))
             {
                 $data['msgDelError'] = 'Kategorie kann nicht gelöscht werden, dieser Kategorie sind noch Fragen zugeordnet!';
+                $data['categories'] = $this->_categories->getCategories();
+
+                View::rendertemplate('adminHeader',$data);
+                View::render('admin/categories/main',$data);
+                View::rendertemplate('footer',$data);
+            }
+
+            if(!empty($games))
+            {
+                $data['msgDelError'] = 'Kategorie kann nicht gelöscht werden, dieser Kategorie sind noch Spiele zugeordnet!';
                 $data['categories'] = $this->_categories->getCategories();
 
                 View::rendertemplate('adminHeader',$data);

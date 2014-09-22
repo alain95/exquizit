@@ -78,9 +78,10 @@ Router::get('logout', '\controllers\admin\main@logout');
 Router::get('admin/questions','\controllers\admin\questions@index');
 Router::get('admin/categories','\controllers\admin\categories@index');
 Router::post('admin/categories','\controllers\admin\categories@manage');
-Router::post('admin/questions','\controllers\admin\questions@manage');
 Router::post('admin/questions/delete','\controllers\admin\questions@delete');
 Router::post('admin/questions/update','\controllers\admin\questions@update');
+Router::post('admin/questions','\controllers\admin\questions@manage');
+
 
 //if no route found
 Router::error('\core\error@index');
