@@ -17,6 +17,25 @@
            $(".container").hide('slow');
            $("#easter").show('slow');
         });
+
+        var pieData = [
+            {
+                value: <?php echo ($data['question']->beantwortet - $data['question']->richtigBeantwortet) ?>,
+                color:"#e51c23",
+                highlight: "#d91920",
+                label: "Falsch"
+            },
+            {
+                value: <?php echo $data['question']->richtigBeantwortet ?>,
+                color: "#3d8b40",
+                highlight: "#47a44b",
+                label: "Richtig"
+            }
+
+        ];
+
+        var ctx = document.getElementById("questionChart").getContext("2d");
+        window.myPie = new Chart(ctx).Pie(pieData);
     </script>
 </head>
 <body>

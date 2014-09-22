@@ -33,6 +33,11 @@ class quiz extends \core\controller{
             url::redirect('');
         }
 
+        if(Session::get('gameStarted'))
+        {
+            url::redirect('quiz/start');
+        }
+
         $data['title'] = 'Neues Spiel';
         $data['username'] = Session::get('benutzername');
 
@@ -53,6 +58,10 @@ class quiz extends \core\controller{
 
         if(Session::get('spielID') == 0)
         {
+            if(empty($_POST))
+            {
+                url::redirect('quiz');
+            }
             $timestamp = time();
             $timestampDB = date('Y-m-d G:i:s', $timestamp);
             $timestampGame = date('d.m.Y G:i:s', $timestamp);
@@ -68,6 +77,7 @@ class quiz extends \core\controller{
             $data['startTime'] = $timestampGame;
             Session::set('gameStarted', true);
             Session::set('spielID', $spielID);
+            Session::set('fiftyfifty', true);
 
             $categories = array();
             $where = '';
@@ -109,6 +119,12 @@ class quiz extends \core\controller{
         else
         {
             $spielID = Session::get('spielID');
+            $fiftyfifty = Session::get('fiftyfifty');
+
+            if(!$fiftyfifty)
+            {
+                $data['fiftyfifty'] = 'disabled';
+            }
 
             $gameCategories = $this->_game->getCategories($spielID);
 
@@ -165,7 +181,7 @@ class quiz extends \core\controller{
         }
 
 
-        View::rendertemplate('loggedInHeader',$data);
+        View::rendertemplate('gameHeader',$data);
         View::render('game/quiz',$data);
         View::rendertemplate('footer',$data);
     }
@@ -249,6 +265,7 @@ class quiz extends \core\controller{
 
             $this->_game->closeGame($postdata, $where);
             Session::set('spielID', 0);
+            Session::set('gameStarted', false);
         }
 
         echo json_encode(array('korrekt' => $korrekt, 'id' => $antwortID));
@@ -261,6 +278,8 @@ class quiz extends \core\controller{
 
         shuffle($result);
         array_pop($result);
+
+        Session::set('fiftyfifty', false);
 
         echo json_encode($result);
     }

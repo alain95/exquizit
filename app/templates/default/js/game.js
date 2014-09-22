@@ -49,6 +49,7 @@ $(document).ready(function(){
                     $(selector).addClass('btn-danger');
                     $('.answer').attr("disabled", "disabled");
                     $('#gameButtons').hide();
+                    $('#lostGame').show();
                 }
             })
     })

@@ -39,7 +39,8 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <button id="fiftyfifty" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning">50/50</button>
+                        <button style="width: 80px;" id="fiftyfifty" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning" <?php echo $data['fiftyfifty']; ?>>50/50</button>
+                        <button style="width: 80px;" class="btn btn-warning"><span class="glyphicon glyphicon-share-alt"></span></button>
                     </div>
                 </div>
             </div>
@@ -47,12 +48,14 @@
         <div class="row">
             <div id="gameButtons" class="col-lg-12 text-center">
                 <button class="btn btn-lg btn-success">Quiz beenden</button>
-                <button class="btn btn-lg btn-danger">Quiz abbrechen</button>
+                <button class="btn btn-lg btn-danger" id="cancelQuiz">Quiz abbrechen</button>
             </div>
             <div style="display: none" id="nextRoundButton" class="col-lg-12 text-center">
                 <button onClick="location.reload();" class="btn btn-lg btn-primary">Nächste Frage</button>
             </div>
-
+            <div style="display: none" id="lostGame" class="col-lg-12 text-center">
+                <button class="btn btn-lg btn-danger">Das war leider falsch! Spiel verloren. Zurück zur <a href="/quiz">Übersicht</a></button>
+            </div>
         </div>
     </div>
     <div class="col-lg-3">
@@ -72,5 +75,18 @@
                 </ul>
             </div>
         </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>Frage-Statistik</h4></div>
+            <div class="panel-body text-center">
+                <?php if($data['question']->beantwortet == 0)
+                {
+                    echo "<p>Frage noch nie beantwortet! Keine Statistik vorhanden.</p>";
+                }
+                ?>
+                <canvas id="questionChart" width="150" height="150"></canvas>
+            </div>
+        </div>
     </div>
 </div>
+<?php echo print_r($data['question']) ?>
+
