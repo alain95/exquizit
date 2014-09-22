@@ -90,6 +90,8 @@ $(document).ready(function(){
                 {
                    $('#mainContainer').html(data);
                     history.pushState(null, document.title, 'quiz/start');
+                    var ctx = document.getElementById("questionChart").getContext("2d");
+                    window.myPie = new Chart(ctx).Pie(pieData);
                 })
         }
     })

@@ -34,8 +34,10 @@
 
         ];
 
-        var ctx = document.getElementById("questionChart").getContext("2d");
-        window.myPie = new Chart(ctx).Pie(pieData);
+        window.onload = function() {
+            var ctx = document.getElementById("questionChart").getContext("2d");
+            window.myPie = new Chart(ctx).Pie(pieData);
+        }
     </script>
 </head>
 <body>
