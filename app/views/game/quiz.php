@@ -39,8 +39,8 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <button style="width: 80px;" title="Fifty Fifty Joker" id="fiftyfifty" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning" <?php echo $data['fiftyfifty']; ?>>50/50</button>
-                        <button style="width: 80px;" title="Überspringen Joker" class="btn btn-warning"><span class="glyphicon glyphicon-share-alt"></span></button>
+                        <button style="width: 80px;" title="Fifty Fifty Joker" id="fiftyfiftyJoker" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning" <?php echo $data['fiftyfifty']; ?>>50/50</button>
+                        <button style="width: 80px;" title="Überspringen Joker" id="skipQuestionJoker" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning" <?php echo $data['skip']; ?>><span class="glyphicon glyphicon-share-alt"></span></button>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <button id="finishGameBtn" value="<?php echo $data['spielID']; ?>" class="btn btn-lg btn-success">Quiz beenden</button>
                 <button id="cancelGameBtn"  value="<?php echo $data['spielID']; ?>" class="btn btn-lg btn-danger" id="cancelQuiz">Quiz abbrechen</button>
             </div>
-            <div style="display: none" id="nextRoundButton" class="col-lg-12 text-center">
+            <div style="display: none; margin-top:23px" id="nextRoundButton" class="col-lg-12 text-center">
                 <button onClick="location.reload();" class="btn btn-lg btn-primary">Nächste Frage</button>
             </div>
             <div style="display: none; margin-top:23px" id="lostGame" class="col-lg-12 text-center">

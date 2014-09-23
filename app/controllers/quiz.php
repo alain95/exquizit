@@ -77,7 +77,8 @@ class quiz extends \core\controller{
             $data['startTime'] = $timestampGame;
             Session::set('gameStarted', true);
             Session::set('spielID', $spielID);
-            Session::set('fiftyfifty', true);
+            Session::set('fiftyfiftyJoker', true);
+            Session::set('skipJoker', true);
 
             $categories = array();
             $where = '';
@@ -118,11 +119,18 @@ class quiz extends \core\controller{
         else
         {
             $spielID = Session::get('spielID');
-            $fiftyfifty = Session::get('fiftyfifty');
+            $fiftyfifty = Session::get('fiftyfiftyJoker');
 
             if(!$fiftyfifty)
             {
                 $data['fiftyfifty'] = 'disabled';
+            }
+
+            $skip = Session::get('skipJoker');
+
+            if(!$skip)
+            {
+                $data['skip'] = 'disabled';
             }
 
             $gameCategories = $this->_game->getCategories($spielID);
@@ -275,26 +283,51 @@ class quiz extends \core\controller{
     public  function joker()
     {
         $id = $_REQUEST['id'];
-        $result = $this->_answer->getWrongAnswers($id);
+        if($_REQUEST['jokerType'] == "fiftyfity")
+        {
+            $result = $this->_answer->getWrongAnswers($id);
 
-        shuffle($result);
-        array_pop($result);
+            shuffle($result);
+            array_pop($result);
 
-        Session::set('fiftyfifty', false);
+            Session::set('fiftyfiftyJoker', false);
 
-        echo json_encode($result);
+            echo json_encode($result);
+        }
+        elseif($_REQUEST['jokerType'] == "skip")
+        {
+            $gameID = Session::get('spielID');
+            $roundData = array(
+                'spielID' => $gameID,
+                'frageID' => $id
+            );
+
+            $this->_game->addRound($roundData);
+            Session::set('skipJoker', false);
+        }
     }
 
     public function finish()
     {
         $id = $_REQUEST['id'];
 
+        $game = $this->_game->getGame($id);
+        $start = strtotime($game->start);
+
+
         $timestamp = time();
         $timestampDB = date('Y-m-d G:i:s', $timestamp);
 
+        $difference = $timestamp - $start;
+
+        $points = $game->punktzahl;
+
+        $weightedPoints = round(($points / $difference));
+
         $postdata = array(
             'abgeschlossen' => 2,
-            'ende' => $timestampDB
+            'ende' => $timestampDB,
+            'gewichtetePunkte' => $weightedPoints
         );
 
         $where = array('spielID' => $id);

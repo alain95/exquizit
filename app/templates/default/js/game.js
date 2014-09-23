@@ -41,6 +41,7 @@ $(document).ready(function(){
                     $(selector).addClass('btn-success');
                     $('.answer').attr("disabled", "disabled");
                     $('#gameButtons').hide();
+                    $('#jokerButtons').hide();
                     $('#nextRoundButton').show();
                 }
                 else
@@ -55,22 +56,43 @@ $(document).ready(function(){
             })
     })
 
-    $("#fiftyfifty").click(function()
+    $("#fiftyfiftyJoker").click(function()
     {
 
         $.ajax({
             type: "POST",
             url: 'joker',
-            data: {id : this.value}
+            data: {
+                id : this.value,
+                jokerType : 'fiftyfity'
+            }
         }).done(function(data)
             {
                 var array = jQuery.parseJSON(data);
                 $.each(array, function( key, value ) {
                     $("#answer" + value.antwortID).attr("disabled", "disabled");
-                    $("#fiftyfifty").attr("disabled", "disabled");
+                    $("#fiftyfiftyJoker").attr("disabled", "disabled");
                 })
             })
     })
+
+    $("#skipQuestionJoker").click(function()
+    {
+
+        $.ajax({
+            type: "POST",
+            url: 'joker',
+            data: {
+                id : this.value,
+                jokerType : 'skip'
+            }
+        }).done(function()
+            {
+                location.reload();
+            })
+    })
+
+
 
     $("#startGameForm").submit(function(event)
     {
