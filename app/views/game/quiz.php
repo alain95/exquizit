@@ -47,8 +47,8 @@
         </div>
         <div class="row">
             <div id="gameButtons" class="col-lg-12 text-center">
-                <button class="btn btn-lg btn-success">Quiz beenden</button>
-                <button class="btn btn-lg btn-danger" id="cancelQuiz">Quiz abbrechen</button>
+                <button id="finishGameBtn" value="<?php echo $data['spielID']; ?>" class="btn btn-lg btn-success">Quiz beenden</button>
+                <button id="cancelGameBtn"  value="<?php echo $data['spielID']; ?>" class="btn btn-lg btn-danger" id="cancelQuiz">Quiz abbrechen</button>
             </div>
             <div style="display: none" id="nextRoundButton" class="col-lg-12 text-center">
                 <button onClick="location.reload();" class="btn btn-lg btn-primary">Nächste Frage</button>
@@ -69,7 +69,15 @@
                     {
                         foreach($data['categories'][$i]  as $category)
                         {
-                           echo '<li>'. $category->bezeichnung . '</li>';
+                            if($data['question']->kategorieID == $category->kategorieID)
+                            {
+                                echo '<li><b>'. $category->bezeichnung . '</b></li>';
+                            }
+                            else
+                            {
+                                echo '<li>'. $category->bezeichnung . '</li>';
+                            }
+
                         }
                     }
                     ?>

@@ -51,7 +51,7 @@
                         </div>
                         <div class="navbar-collapse collapse navbar-responsive-collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a>Hallo, <?php echo $data['username'] ?></a></li>
+                                <li><a href="/profil?id=<?php echo $data['userID'] ?>">Hallo, <?php echo $data['username'] ?></a></li>
                                 <li><a href="/logout"><span class="label label-danger "><span class="glyphicon glyphicon-log-out"></span></span></a></li>
                             </ul>
                         </div>

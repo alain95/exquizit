@@ -40,7 +40,7 @@ class quiz extends \core\controller{
 
         $data['title'] = 'Neues Spiel';
         $data['username'] = Session::get('benutzername');
-
+        $data['userID'] =  Session::get('userID');
 
         $data['categories'] = $this->_categories->getCategories();
 
@@ -111,7 +111,6 @@ class quiz extends \core\controller{
             $answers = $this->_questions->getAnswers($question->frageID);
             shuffle($answers);
 
-
             $data['answers'] = $answers;
 
             $data['question'] = $question;
@@ -179,7 +178,9 @@ class quiz extends \core\controller{
             $data['answers'] = $answers;
             $data['question'] = $question;
         }
-
+        $data['spielID'] = Session::get('spielID');
+        $data['username'] = Session::get('benutzername');
+        $data['userID'] =  Session::get('userID');
 
         View::rendertemplate('gameHeader',$data);
         View::render('game/quiz',$data);
@@ -282,6 +283,56 @@ class quiz extends \core\controller{
         Session::set('fiftyfifty', false);
 
         echo json_encode($result);
+    }
+
+    public function finish()
+    {
+        $id = $_REQUEST['id'];
+
+        $timestamp = time();
+        $timestampDB = date('Y-m-d G:i:s', $timestamp);
+
+        $postdata = array(
+            'abgeschlossen' => 2,
+            'ende' => $timestampDB
+        );
+
+        $where = array('spielID' => $id);
+
+        $this->_game->closeGame($postdata, $where);
+        Session::set('spielID', 0);
+        Session::set('gameStarted', false);
+        $data['username'] = Session::get('benutzername');
+        $data['userID'] =  Session::get('userID');
+        $data['categories'] = $this->_categories->getCategories();
+
+        View::rendertemplate('loggedInHeader',$data);
+        View::render('game/start',$data);
+        View::rendertemplate('footer',$data);
+    }
+
+    public function cancel()
+    {
+        $id = $_REQUEST['id'];
+
+        $postdata = array(
+            'abgeschlossen' => 1
+        );
+
+
+        $where = array('spielID' => $id);
+
+        $this->_game->closeGame($postdata, $where);
+        Session::set('spielID', 0);
+        Session::set('gameStarted', false);
+
+        $data['username'] = Session::get('benutzername');
+        $data['userID'] =  Session::get('userID');
+        $data['categories'] = $this->_categories->getCategories();
+
+        View::rendertemplate('loggedInHeader',$data);
+        View::render('game/start',$data);
+        View::rendertemplate('footer',$data);
     }
 
 }

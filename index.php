@@ -62,6 +62,8 @@ Router::get('', '\controllers\welcome@index');
 Router::post('', '\controllers\login@login');
 Router::any('quiz', '\controllers\quiz@index');
 Router::any('quiz/start', '\controllers\quiz@start');
+Router::any('quiz/finish', '\controllers\quiz@finish');
+Router::any('quiz/cancel', '\controllers\quiz@cancel');
 Router::post('quiz/check', '\controllers\quiz@checkAnswer');
 Router::post('quiz/joker', '\controllers\quiz@joker');
 Router::any('impressum', '\controllers\welcome@impressum');
@@ -81,6 +83,8 @@ Router::post('admin/categories','\controllers\admin\categories@manage');
 Router::post('admin/questions/delete','\controllers\admin\questions@delete');
 Router::post('admin/questions/update','\controllers\admin\questions@update');
 Router::post('admin/questions','\controllers\admin\questions@manage');
+
+Router::any('profil', '\controllers\profile@index');
 
 
 //if no route found

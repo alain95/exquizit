@@ -34,4 +34,10 @@ class user extends \core\model {
         $data = $this->_db->select("SELECT spielerID FROM ".PREFIX."spieler WHERE benutzername = :username",array(':username' => $username));
         return $data[0]->spielerID;
     }
+
+    function getGames($id)
+    {
+        $data = $this->_db->select("SELECT * FROM ".PREFIX."spiel WHERE spielerID = :id",array(':id' => $id));
+        return $data;
+    }
 } 

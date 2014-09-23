@@ -1,2 +1,3 @@
 <div class="row">
-    </div>
+    <?php echo "hue" ?>
+</div>

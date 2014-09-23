@@ -97,6 +97,32 @@ $(document).ready(function(){
         }
     })
 
+    $("#finishGameBtn").click(function()
+    {
+        $.ajax({
+            type: "POST",
+            url: 'finish',
+            data: {id: this.value}
+        }).done(function(data)
+            {
+                $('#mainContainer').html(data);
+                history.pushState(null, document.title, '/quiz');
+            })
+    })
+
+    $("#cancelGameBtn").click(function()
+    {
+        $.ajax({
+            type: "POST",
+            url: 'cancel',
+            data: {id: this.value}
+        }).done(function(data)
+            {
+                $('#mainContainer').html(data);
+                history.pushState(null, document.title, '/quiz');
+            })
+    })
+
 })
 
 function removeCategoryButtonClick(id)
