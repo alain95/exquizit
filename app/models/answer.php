@@ -36,6 +36,12 @@ class answer extends \core\model {
         return $this->_db->select("SELECT antwortID FROM ".PREFIX."antwort WHERE korrekt = 0 AND frageID = :id", array(':id' => $id));
     }
 
+    public function getCorrectAnswer($id)
+    {
+        $data =  $this->_db->select("SELECT antwortID FROM ".PREFIX."antwort WHERE korrekt = 1 AND frageID = :id", array(':id' => $id));
+        return $data[0];
+    }
+
     public function deleteAnswer($data){
             $this->_db->delete(PREFIX.'antwort', $data);
     }

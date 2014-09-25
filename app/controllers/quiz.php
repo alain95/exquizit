@@ -43,10 +43,18 @@ class quiz extends \core\controller{
         $data['userID'] =  Session::get('userID');
 
         $data['categories'] = $this->_categories->getCategories();
+        $data['games'] = $this->getFinishedGames();
 
         View::rendertemplate('loggedInHeader',$data);
         View::render('game/start',$data);
         View::rendertemplate('footer',$data);
+    }
+
+    public function getFinishedGames()
+    {
+        $games = $this->_game->getFinishedGames();
+        return $games;
+
     }
 
     public function start()
@@ -107,6 +115,8 @@ class quiz extends \core\controller{
 
             $item = array_rand($questions);
             $question = $questions[$item];
+
+            Session::set('questionID', $question->frageID);
 
 
             $answers = $this->_questions->getAnswers($question->frageID);
@@ -185,7 +195,9 @@ class quiz extends \core\controller{
 
             $data['answers'] = $answers;
             $data['question'] = $question;
+            Session::set('questionID', $question->frageID);
         }
+        $data['startTime'] = Session::get('startTime');
         $data['spielID'] = Session::get('spielID');
         $data['username'] = Session::get('benutzername');
         $data['userID'] =  Session::get('userID');
@@ -206,84 +218,89 @@ class quiz extends \core\controller{
         $gameID = Session::get('spielID');
         $question = $this->_questions->getQuestion($frageID);
 
+        $correctID = $this->_answer->getCorrectAnswer($frageID);
 
 
-
-        if($korrekt)
+        if($question->frageID == Session::get('questionID'))
         {
-            $richtigBeantwortet = $question->richtigBeantwortet;
-            $beantwortet = $question->beantwortet;
-            ++$richtigBeantwortet;
-            ++$beantwortet;
 
-            $questionData = array(
-                'beantwortet' => $beantwortet,
-                'richtigBeantwortet' => $richtigBeantwortet
-            );
 
-            $where = array('frageID' => $frageID);
+            if($korrekt)
+            {
+                $richtigBeantwortet = $question->richtigBeantwortet;
+                $beantwortet = $question->beantwortet;
+                ++$richtigBeantwortet;
+                ++$beantwortet;
 
-            $this->_questions->updateQuestion($questionData, $where);
+                $questionData = array(
+                    'beantwortet' => $beantwortet,
+                    'richtigBeantwortet' => $richtigBeantwortet
+                );
 
-            $roundData = array(
-                'spielID' => $gameID,
-                'frageID' => $frageID
-            );
+                $where = array('frageID' => $frageID);
 
-            $this->_game->addRound($roundData);
+                $this->_questions->updateQuestion($questionData, $where);
 
-            $game = $this->_game->getGame($gameID);
-            $points = $game->punktzahl;
-            $points = $points + 30;
+                $roundData = array(
+                    'spielID' => $gameID,
+                    'frageID' => $frageID
+                );
 
-            $gameData = array(
-              'punktzahl' => $points
-            );
+                $this->_game->addRound($roundData);
 
-            $where = array('spielID' => $gameID);
+                $game = $this->_game->getGame($gameID);
+                $points = $game->punktzahl;
+                $points = $points + 30;
 
-            $this->_game->updateGame($gameData, $where);
+                $gameData = array(
+                  'punktzahl' => $points
+                );
+
+                $where = array('spielID' => $gameID);
+
+                $this->_game->updateGame($gameData, $where);
+
+            }
+            else
+            {
+                $beantwortet = $question->beantwortet;
+                ++$beantwortet;
+
+                $questionData = array(
+                    'beantwortet' => $beantwortet
+                );
+
+                $where = array('frageID' => $frageID);
+                $this->_questions->updateQuestion($questionData, $where);
+
+                $roundData = array(
+                    'spielID' => $gameID,
+                    'frageID' => $frageID
+                );
+
+                $this->_game->addRound($roundData);
+
+                $postdata = array(
+                    'abgeschlossen' => 1
+                );
+
+
+                $where = array('spielID' => $gameID);
+
+                $this->_game->closeGame($postdata, $where);
+                Session::set('spielID', 0);
+                Session::set('gameStarted', false);
+            }
 
         }
-        else
-        {
-            $beantwortet = $question->beantwortet;
-            ++$beantwortet;
 
-            $questionData = array(
-                'beantwortet' => $beantwortet
-            );
-
-            $where = array('frageID' => $frageID);
-            $this->_questions->updateQuestion($questionData, $where);
-
-
-            $roundData = array(
-                'spielID' => $gameID,
-                'frageID' => $frageID
-            );
-
-            $this->_game->addRound($roundData);
-
-            $postdata = array(
-                'abgeschlossen' => 1
-            );
-
-
-            $where = array('spielID' => $gameID);
-
-            $this->_game->closeGame($postdata, $where);
-            Session::set('spielID', 0);
-            Session::set('gameStarted', false);
-        }
-
-        echo json_encode(array('korrekt' => $korrekt, 'id' => $antwortID));
+        echo json_encode(array('korrekt' => $korrekt, 'id' => $antwortID, 'korrektID' => $correctID->antwortID));
     }
 
     public  function joker()
     {
         $id = $_REQUEST['id'];
-        if($_REQUEST['jokerType'] == "fiftyfity")
+        if($_REQUEST['jokerType'] == "fiftyfity" && Session::get('fiftyfiftyJoker'))
         {
             $result = $this->_answer->getWrongAnswers($id);
 
@@ -294,7 +311,7 @@ class quiz extends \core\controller{
 
             echo json_encode($result);
         }
-        elseif($_REQUEST['jokerType'] == "skip")
+        elseif($_REQUEST['jokerType'] == "skip" && Session::get('skipJoker'))
         {
             $gameID = Session::get('spielID');
             $roundData = array(
@@ -322,7 +339,7 @@ class quiz extends \core\controller{
 
         $points = $game->punktzahl;
 
-        $weightedPoints = round(($points / $difference));
+        $weightedPoints = round(($points / $difference), 2);
 
         $postdata = array(
             'abgeschlossen' => 2,
@@ -335,37 +352,12 @@ class quiz extends \core\controller{
         $this->_game->closeGame($postdata, $where);
         Session::set('spielID', 0);
         Session::set('gameStarted', false);
+        Session::set('questionID', 0);
         $data['username'] = Session::get('benutzername');
         $data['userID'] =  Session::get('userID');
-        $data['categories'] = $this->_categories->getCategories();
 
-        View::rendertemplate('loggedInHeader',$data);
-        View::render('game/start',$data);
-        View::rendertemplate('footer',$data);
+        $this->index();
     }
 
-    public function cancel()
-    {
-        $id = $_REQUEST['id'];
-
-        $postdata = array(
-            'abgeschlossen' => 1
-        );
-
-
-        $where = array('spielID' => $id);
-
-        $this->_game->closeGame($postdata, $where);
-        Session::set('spielID', 0);
-        Session::set('gameStarted', false);
-
-        $data['username'] = Session::get('benutzername');
-        $data['userID'] =  Session::get('userID');
-        $data['categories'] = $this->_categories->getCategories();
-
-        View::rendertemplate('loggedInHeader',$data);
-        View::render('game/start',$data);
-        View::rendertemplate('footer',$data);
-    }
 
 }

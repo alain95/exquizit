@@ -29,7 +29,7 @@
                         </div>
                         <div class="navbar-collapse collapse navbar-responsive-collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="admin/main"><span class="label label-primary"><span class="glyphicon glyphicon-cog"></span></span></a></li>
+                                <li><a href="/admin/login"><span class="label label-primary"><span class="glyphicon glyphicon-cog"></span></span></a></li>
                             </ul>
                         </div>
                     </div>

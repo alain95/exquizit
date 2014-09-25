@@ -59,5 +59,11 @@ class game extends \core\model {
         return $data;
     }
 
+    public function getFinishedGames()
+    {
+        $data = $this->_db->select("SELECT * FROM ".PREFIX."spiel WHERE (abgeschlossen = 2 AND gewichtetePunkte > 0) ORDER BY gewichtetePunkte DESC LIMIT 10");
+        return $data;
+    }
+
 
 } 

@@ -48,11 +48,8 @@ class Categories extends \core\controller{
             {
                 $data['error'] = 'Fehler beim Hinzufügen von der Kategorie' . $_REQUEST['categoryName'];
             }
-            $data['categories'] = $this->_categories->getCategories();
 
-            View::rendertemplate('adminHeader',$data);
-            View::render('admin/categories/main',$data);
-            View::rendertemplate('footer',$data);
+            $this->index();
         }
 
         if(isset($_REQUEST['delete']))

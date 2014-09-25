@@ -48,7 +48,6 @@
         <div class="row">
             <div id="gameButtons" class="col-lg-12 text-center">
                 <button id="finishGameBtn" value="<?php echo $data['spielID']; ?>" class="btn btn-lg btn-success">Quiz beenden</button>
-                <button id="cancelGameBtn"  value="<?php echo $data['spielID']; ?>" class="btn btn-lg btn-danger" id="cancelQuiz">Quiz abbrechen</button>
             </div>
             <div style="display: none; margin-top:23px" id="nextRoundButton" class="col-lg-12 text-center">
                 <button onClick="location.reload();" class="btn btn-lg btn-primary">Nächste Frage</button>
@@ -60,6 +59,17 @@
         </div>
     </div>
     <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>Frage-Statistik</h4></div>
+            <div class="panel-body text-center">
+                <?php if($data['question']->beantwortet == 0)
+                {
+                    echo "<p>Frage noch nie beantwortet! Keine Statistik vorhanden.</p>";
+                }
+                ?>
+                <canvas id="questionChart" width="150" height="150"></canvas>
+            </div>
+        </div>
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Kategorien</h4></div>
             <div class="panel-body">
@@ -82,17 +92,6 @@
                     }
                     ?>
                 </ul>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading"><h4>Frage-Statistik</h4></div>
-            <div class="panel-body text-center">
-                <?php if($data['question']->beantwortet == 0)
-                {
-                    echo "<p>Frage noch nie beantwortet! Keine Statistik vorhanden.</p>";
-                }
-                ?>
-                <canvas id="questionChart" width="150" height="150"></canvas>
             </div>
         </div>
     </div>

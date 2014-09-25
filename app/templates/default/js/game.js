@@ -19,22 +19,22 @@ $(document).ready(function(){
 
         $('#startGameForm').append('<input type="hidden" value="'+this.value+'" name="kat'+this.value+'" />');
 
-
-
     })
 
     $(".answer").click(function()
     {
-
         $.ajax({
             type: "POST",
             url: 'check',
-            data: {id : this.value}
+            data: {
+                id : this.value
+            }
         }).done(function(data)
             {
                 var obj = jQuery.parseJSON(data);
                 console.log(obj);
                 var selector = '#answer' + obj.id;
+                var correctSelector = '#answer' + obj.korrektID;
                 if(obj.korrekt == "1")
                 {
                     $(selector).removeClass('btn-info');
@@ -46,6 +46,7 @@ $(document).ready(function(){
                 }
                 else
                 {
+                    $(correctSelector).addClass('btn-success');
                     $(selector).removeClass('btn-info');
                     $(selector).addClass('btn-danger');
                     $('.answer').attr("disabled", "disabled");
@@ -124,19 +125,6 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             url: 'finish',
-            data: {id: this.value}
-        }).done(function(data)
-            {
-                $('#mainContainer').html(data);
-                history.pushState(null, document.title, '/quiz');
-            })
-    })
-
-    $("#cancelGameBtn").click(function()
-    {
-        $.ajax({
-            type: "POST",
-            url: 'cancel',
             data: {id: this.value}
         }).done(function(data)
             {
