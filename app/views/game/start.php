@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-lg-4">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-th-list"></span></span>Alle Kategorien</h4></div>
+            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-list"></span></span>Alle Kategorien</h4></div>
             <div class="panel-body">
                 <table class="table table-striped">
                     <thead>
@@ -44,7 +44,7 @@
     </div>
     <div class="col-lg-4">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-th-list"></span></span>Quiz Kategorien</h4></div>
+            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-list"></span></span>Quiz Kategorien</h4></div>
             <div class="panel-body">
                 <div id="errorNoCategory" style="display: none" class="alert alert-dismissable alert-danger">
                     <button type="button" class="close" data-dismiss="alert">×</button>
@@ -98,7 +98,7 @@
 <div class="row" style="padding-bottom: 10px">
     <div class="col-lg-4 col-lg-offset-4 text-center">
         <form id="startGameForm">
-            <button id="startGameBtn" class="btn btn-success btn-lg">Quiz starten</button>
+            <button id="startGameBtn" class="btn btn-primary btn-lg">Quiz starten</button>
         </form>
     </div>
 </div>

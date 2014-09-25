@@ -82,7 +82,6 @@ class quiz extends \core\controller{
             $spielID = $this->_game->newGame($gameData);
 
             Session::set('startTime', $timestampGame);
-            $data['startTime'] = $timestampGame;
             Session::set('gameStarted', true);
             Session::set('spielID', $spielID);
             Session::set('fiftyfiftyJoker', true);
@@ -197,7 +196,6 @@ class quiz extends \core\controller{
             $data['question'] = $question;
             Session::set('questionID', $question->frageID);
         }
-        $data['startTime'] = Session::get('startTime');
         $data['spielID'] = Session::get('spielID');
         $data['username'] = Session::get('benutzername');
         $data['userID'] =  Session::get('userID');

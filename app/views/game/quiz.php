@@ -1,15 +1,9 @@
 <div class="row">
     <div class="col-lg-3">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4>Zeit</h4></div>
-            <div class="panel-body">
-                <h5><span class="label label-primary">Start: <?php echo $data['startTime'] ?></span></h5>
-            </div>
-        </div>
-        <div class="panel panel-default">
             <div class="panel-heading"><h4>Punkte</h4></div>
             <div class="panel-body">
-                <h5><span class="label label-primary"><?php echo isset($data['points']) ? $data['points'] : 0 ?></span></h5>
+                <h4><span class="label label-primary"><?php echo isset($data['points']) ? $data['points'] : 0 ?></span></h4>
             </div>
         </div>
     </div>

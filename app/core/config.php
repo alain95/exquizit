@@ -41,7 +41,7 @@ class Config {
 		define('SITETITLE','exQuizit');
 
 		//set the default template
-		\helpers\session::set('template','default');
+		\helpers\session::set('template','freelancer');
 		
 	}
 
