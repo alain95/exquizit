@@ -3,7 +3,7 @@
         <div class="panel panel-default" style="min-height: 307px">
             <div class="panel-body" style="text-align: center;">
                 <h1 class="logo">exQuizIt</h1>
-                <h4>Teste jetzt dein Wissen - einloggen und los gehts!</h4>
+                <p>Teste jetzt dein Wissen - einloggen und los gehts!</p>
             </div>
          </div>
     </div>
@@ -20,27 +20,25 @@
                 ?>
                 <form id="registerForm" class="form-horizontal" role="form" action="" method="post">
                     <div class="form-group">
-                        <label style="text-align: left" for="inputEmail3" class="col-sm-3 control-label">Benutzername</label>
-                        <div class="col-sm-9">
+                        <div class="col-sm-12">
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                                <input class="form-control" name="username" type="text" placeholder="Benutzername eingeben" required>
+                                <input class="form-control" name="username" type="text" placeholder="Benutzername" required>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword3" style="text-align: left" class="col-sm-3 control-label">Passwort</label>
-                        <div class="col-sm-9">
+                        <div class="col-sm-12">
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                                <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Passwort eingeben" required>
+                                <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Passwort" required>
                             </div>
 
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-offset-4 col-sm-8" style="padding-left:0">
-                            <button type="submit" name="submit" value="submit" class="btn btn-default btn-success">Anmelden</button>
+                        <div class="col-sm-12">
+                            <button type="submit" name="submit" value="submit" class="btn btn-default btn-success pull-right">Anmelden</button>
                         </div>
                     </div>
                     <div class="form-group">

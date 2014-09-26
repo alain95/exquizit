@@ -20,21 +20,22 @@
 </head>
 <body>
     <div id="easter" style="display: none; width: 100%; height: 1100px; background-repeat: repeat; background:url('<?php echo \helpers\url::get_template_path();?>images/pika.gif')"></div>
-    <div id="mainContainer" class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="navbar navbar-default">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="<?php echo DIR  ?>">exQuizIt</a>
-                        </div>
-                        <div class="navbar-collapse collapse navbar-responsive-collapse">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="/admin/login"><span class="label label-primary"><span class="glyphicon glyphicon-cog"></span></span></a></li>
-                            </ul>
+    <div id="wrap">
+        <div id="mainContainer" class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="<?php echo DIR  ?>">exQuizIt</a>
+                            </div>
+                            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="/admin/login"><span class="label label-primary"><span class="glyphicon glyphicon-cog"></span></span></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
 
