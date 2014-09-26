@@ -18,7 +18,7 @@ class Main extends \core\controller{
 	public function index(){
 
 
-        if(Session::get('loggedIn') == false){
+        if(Session::get('userLoggedIn') == false){
             url::redirect('admin/login');
         }
 
@@ -34,7 +34,7 @@ class Main extends \core\controller{
 
     public function login(){
 
-        if(Session::get('loggedIn') == true){
+        if(Session::get('userLoggedIn') == true){
             url::redirect('admin/main');
         }
 
@@ -49,7 +49,11 @@ class Main extends \core\controller{
 
             if($db_hash == $password && $isadmin)
             {
-                Session::set('loggedIn',true);
+                $userID = $this->_user->getUserID($username);
+                Session::set('userLoggedIn',true);
+                Session::set('benutzername', $username);
+                Session::set('userID', $userID);
+
                 url::redirect('admin/main');
             }
             else

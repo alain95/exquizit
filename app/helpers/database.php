@@ -66,6 +66,7 @@ class Database extends PDO{
         $stmt = $this->prepare("INSERT INTO $table ($fieldNames) VALUES ($fieldValues)");
 
 		foreach($data as $key => $value){
+            $value = htmlentities($value);
 			$stmt->bindValue(":$key", $value);
 		}
 

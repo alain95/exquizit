@@ -1,13 +1,13 @@
 <div class="row">
-    <div class="col-lg-8">
-        <div class="panel panel-default" style="min-height: 307px">
+    <div class="col-md-8">
+        <div class="panel panel-default" style="min-height: 319px">
             <div class="panel-body" style="text-align: center;">
                 <h1 class="logo">exQuizIt</h1>
-                <p>Teste jetzt dein Wissen - einloggen und los gehts!</p>
+                <h4>Teste jetzt dein Wissen - einloggen und los gehts!</h4>
             </div>
          </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Login</h4></div>
             <div class="panel-body">
@@ -22,7 +22,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                <div class="input-group-addon"><span class="glyphicons user"></span></div>
                                 <input class="form-control" name="username" type="text" placeholder="Benutzername" required>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                                <div class="input-group-addon"><span class="glyphicons lock"></span></div>
                                 <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Passwort" required>
                             </div>
 

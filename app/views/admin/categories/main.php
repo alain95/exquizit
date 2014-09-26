@@ -8,9 +8,9 @@
 
 ?>
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-6">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-list"></span></span>Kategorien</h4></div>
+            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicons list"></span></span>Kategorien</h4></div>
             <div class="panel-body">
                 <?php
                 if(isset($data['msgDel']))
@@ -37,21 +37,21 @@
                     if($data['categories']){
                         foreach($data['categories'] as $row){
                             echo '<tr>
-                                    <td>'.$row->kategorieID.'</td>
+                                    <td><i class="'.$row->icon.'"></i></td>
                                     <td id="bez'.$row->kategorieID.'">'.$row->bezeichnung.'</td>
                                     <td style="text-align:center">
                                         <button id="edit" name="edit" value="'.$row->kategorieID.'" class="editCategoryButton btn btn-warning btn-xs">
-                                            <span class="glyphicon glyphicon-pencil"></span>
+                                            <span class="glyphicons pencil"></span>
                                         </button>
                                          <button id="save'.$row->kategorieID.'" name="save" value="'.$row->kategorieID.'" style="display:none" class="saveCategoryButton btn btn-primary btn-xs">
-                                            <span class="glyphicon glyphicon-floppy-disk"></span>
+                                            <span class="glyphicons floppy_disk"></span>
                                         </button>
                                     </td>
                                     <td style="text-align:center">
                                         <form role="form" method="post" action="" class="form-horizontal">
                                             <input type="hidden" value="'.$row->kategorieID.'" name="id" />
                                             <button type="submit" name="delete" value="delete" class="btn btn-danger btn-xs">
-                                                <span class="glyphicon glyphicon-trash"></span>
+                                                <span class="glyphicons bin"></span>
                                             </button>
                                         </form>
                                     </td>
@@ -64,9 +64,9 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-md-6">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-plus"></span></span>Kategorie hinzufügen</h4></div>
+            <div class="panel-heading"><h4><span class="label label-success pull-right"><span class="glyphicons plus"></span></span>Kategorie hinzufügen</h4></div>
             <div class="panel-body">
                 <?php
                 if(isset($data['msg']))
@@ -83,6 +83,12 @@
                         <label for="inputEmail3" class="col-sm-3 control-label">Bezeichnung</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="inputCategory" name="categoryName" placeholder="Kategorienbezeichnung">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">Icon</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputCategory" name="categoryIcon" placeholder="CSS Icon Klasse">
                         </div>
                     </div>
                     <div class="form-group">

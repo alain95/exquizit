@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Registrieren</h4></div>
             <div class="panel-body">
@@ -36,7 +36,7 @@
                         <label style="text-align: left" for="inputEmail3" class="col-sm-3 control-label">Benutzername</label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                <div class="input-group-addon"><span class=" -user"></span></div>
                                 <input class="form-control" name="username" type="text" placeholder="Benutzername eingeben" required>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                         <label style="text-align: left" for="inputEmail3" class="col-sm-3 control-label">Email</label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                                <div class="input-group-addon"><span class=" -envelope"></span></div>
                                 <input class="form-control" name="email" type="email" placeholder="E-Mail eingeben" required>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <label for="inputPassword3" style="text-align: left" class="col-sm-3 control-label">Passwort</label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                                <div class="input-group-addon"><span class=" -lock"></span></div>
                                 <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Passwort eingeben" required>
                             </div>
 
@@ -64,7 +64,7 @@
                         <label for="inputPassword3" style="text-align: left" class="col-sm-3 control-label">Passwort bestätigen</label>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                                <div class="input-group-addon"><span class=" -lock"></span></div>
                                 <input type="password" name="password_confirm" class="form-control" id="inputPassword3" placeholder="Passwort bestätigen" required>
                             </div>
 

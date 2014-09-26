@@ -1,25 +1,45 @@
 /**
  * Created by alain.buetler on 07.08.14.
  */
+
+
+
 $(document).ready(function(){
 
-    $(".addCategoryButton").click(function()
+    $(".categoryButton").click(function()
     {
-        var selector = "#row"+this.value;
-        var selectorID = "#katID"+this.value;
-        var selectorBez = "#bez"+this.value;
-        var tdID = $(selector).find(selectorID).html();
-        var tdBez = $(selector).find(selectorBez).html();
-        $('#myCategoryTable').append('<tr id="gamerow'+this.value+'"><td>'+ tdID +'</td><td>' + tdBez +"</td><td>"+
-           "<button class=\"removeCategoryButton btn btn-danger btn-xs\" onclick='removeCategoryButtonClick("+this.value+")'> "+
-               "<span class=\"glyphicon glyphicon-arrow-left\"></span>"+
-           " </button></td></tr>");
 
-        $(selector).hide();
+        var selector = "#rowGameCategory"+this.value;
+        $(selector).toggle();
 
-        $('#startGameForm').append('<input type="hidden" value="'+this.value+'" name="kat'+this.value+'" />');
+        var selector = "#rowCategory"+this.value;
+        $(selector).toggle();
+
+        var selector = "#categoryField" + this.value;
+
+        $(selector).attr('name', 'kat'+this.value);
+        $(selector).attr('value', this.value);
+
+        $("#errorNoCategory").hide().fadeOut();
 
     })
+
+    $(".removeCategoryButton").click(function()
+    {
+
+        var selector = "#rowGameCategory"+this.value;
+        $(selector).toggle();
+
+        var selector = "#rowCategory"+this.value;
+        $(selector).toggle();
+
+        var selector = "#categoryField"+this.value;
+
+
+        $(selector).removeAttr('name');
+        $(selector).removeAttr('value');
+    })
+
 
     $(".answer").click(function()
     {
@@ -112,7 +132,7 @@ $(document).ready(function(){
                 data: data
             }).done(function(data)
                 {
-                   $('#mainContainer').html(data);
+                   $('body').html(data);
                     history.pushState(null, document.title, 'quiz/start');
                     var ctx = document.getElementById("questionChart").getContext("2d");
                     window.myPie = new Chart(ctx).Pie(pieData);
@@ -128,20 +148,13 @@ $(document).ready(function(){
             data: {id: this.value}
         }).done(function(data)
             {
-                $('#mainContainer').html(data);
+                $('body').html(data);
                 history.pushState(null, document.title, '/quiz');
             })
     })
 
 })
 
-function removeCategoryButtonClick(id)
-{
-    var selector = "#row"+id;
-    var selectorGame = "#gamerow" + id;
 
-    $('#myCategoryTable').children(selectorGame).remove();
-    $(selector).show();
-}
 
 

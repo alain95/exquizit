@@ -15,7 +15,7 @@ class Categories extends \core\controller{
 	}
  
 	public function index(){
-        if(Session::get('loggedIn') == false){
+        if(Session::get('userLoggedIn') == false){
             url::redirect('');
         }
 
@@ -34,8 +34,10 @@ class Categories extends \core\controller{
 
         if(isset($_REQUEST['submitNew']))
         {
-           $postdata = array(
-                'bezeichnung' => $_REQUEST['categoryName']
+
+            $postdata = array(
+                'bezeichnung' => $_REQUEST['categoryName'],
+                'icon' => $_REQUEST['categoryIcon']
             );
 
             $lastID = $this->_categories->addCategory($postdata);

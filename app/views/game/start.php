@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-body">
                 <h3>Neues Quiz</h3>
@@ -9,64 +9,72 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-list"></span></span>Alle Kategorien</h4></div>
+            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicons list"></span></span>Alle Kategorien</h4></div>
             <div class="panel-body">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Bezeichnung</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody id="categoryTable">
+                <div class="row">
                     <?php
                     if($data['categories']){
                         foreach($data['categories'] as $row){
-                            echo '<tr id="row'.$row->kategorieID.'">
-                                    <td id="katID'.$row->kategorieID.'">'.$row->kategorieID.'</td>
-                                    <td id="bez'.$row->kategorieID.'">'.$row->bezeichnung.'</td>
-                                    <td>
-                                        <button id="add'.$row->kategorieID.'" name="add" value="'.$row->kategorieID.'" class="addCategoryButton btn btn-success btn-xs">
-                                            <span class="glyphicon glyphicon-arrow-right"></span>
-                                        </button>
-                                    </td>
-                                </tr>';
+                            echo '<div id="rowCategory'.$row->kategorieID.'" class="col-md-12" >
+                                     <button id="categoryButton'.$row->kategorieID.'"  value="'.$row->kategorieID.'" style="width:100%; height: 80px; margin-top:5px; margin-bottom: 5px;" class="categoryButton btn btn-default">
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                            <i style="font-size:150%;" class="'.$row->icon.'"></i>
+                                          </div>
+                                       </div>
+                                        <div class="row" style="margin-top: 10px">
+                                          <div class="col-md-12">
+                                            <span>'.$row->bezeichnung.'</span>
+                                          </div>
+                                       </div>
+                                    </button>
+                                  </div>';
                         }
                     }
                     ?>
-                    </tbody>
-                </table>
+
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-list"></span></span>Quiz Kategorien</h4></div>
-            <div class="panel-body">
+            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicons list"></span></span>Quiz Kategorien</h4></div>
+            <div id="myCategoryTable" class="panel-body">
                 <div id="errorNoCategory" style="display: none" class="alert alert-dismissable alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
                     <strong>Fehler!</strong><br>Mindestens eine Kategorie muss ausgewählt sein.
                 </div>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Bezeichnung</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody id="myCategoryTable">
-                    </tbody>
-                </table>
+                <div class="row">
+                    <?php
+                    if($data['categories']){
+                        foreach($data['categories'] as $row){
+                            echo '<div style="display:none" id="rowGameCategory'.$row->kategorieID.'" class="col-md-12" >
+                                     <button id="removeCategoryButton'.$row->kategorieID.'"  value="'.$row->kategorieID.'" style="width:100%; height: 80px; margin-top:5px; margin-bottom: 5px;" class="removeCategoryButton btn btn-primary">
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                            <i style="font-size:150%;" class="'.$row->icon.'"></i>
+                                          </div>
+                                       </div>
+                                        <div class="row" style="margin-top: 10px">
+                                          <div class="col-md-12">
+                                            <span>'.$row->bezeichnung.'</span>
+                                          </div>
+                                       </div>
+                                    </button>
+                                  </div>';
+                        }
+                    }
+                    ?>
+
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-warning pull-right"><span class="glyphicon glyphicon-tower"></span></span>Highscoreliste</h4></div>
+            <div class="panel-heading"><h4><span class="label label-warning pull-right"><span class="glyphicons crown"></span></span>Highscoreliste</h4></div>
             <div class="panel-body">
                 <table class="table table-striped">
                     <thead>
@@ -95,10 +103,20 @@
             </div>
         </div>
     </div>
-<div class="row" style="padding-bottom: 10px">
-    <div class="col-lg-4 col-lg-offset-4 text-center">
-        <form id="startGameForm">
-            <button id="startGameBtn" class="btn btn-primary btn-lg">Quiz starten</button>
-        </form>
+    <div class="row" style="padding-bottom: 10px">
+        <div class="col-md-4 col-md-offset-4 text-center">
+            <form id="startGameForm">
+            <?php
+                if($data['categories'])
+                {
+                    foreach($data['categories'] as $row)
+                    {
+                        echo '<input type="hidden" id="categoryField'.$row->kategorieID.'"/>';
+                    }
+                }
+            ?>
+                <button id="startGameBtn" class="btn btn-info btn-lg">Quiz starten</button>
+            </form>
+        </div>
     </div>
 </div>

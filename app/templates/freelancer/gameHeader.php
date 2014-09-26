@@ -9,14 +9,17 @@
     <script src="<?php echo \helpers\url::get_template_path();?>js/game.js"></script>
     <script src="<?php echo \helpers\url::get_template_path();?>js/cheet.js"></script>
     <script src="<?php echo \helpers\url::get_template_path();?>js/chart.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="<?php echo \helpers\url::get_template_path();?>css/sticky-footer.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo \helpers\url::get_template_path();?>css/glyphicons.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo \helpers\url::get_template_path();?>css/font-awesome.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <script>
         cheet('↑ ↑ ↓ ↓ ← → ← → b a', function () {
            $(".container").hide('slow');
            $("#easter").show('slow');
         });
+
 
         var pieData = [
             {
@@ -36,15 +39,16 @@
 
         window.onload = function() {
             var ctx = document.getElementById("questionChart").getContext("2d");
-            window.myPie = new Chart(ctx).Pie(pieData);
+            window.myPie = new Chart(ctx).Pie(pieData, {animationEasing: "linear", animationSteps : 50});
         }
     </script>
 </head>
 <body>
     <div id="easter" style="display: none; width: 100%; height: 1100px; background-repeat: repeat; background:url('<?php echo \helpers\url::get_template_path();?>images/pika.gif')"></div>
-    <div id="mainContainer" class="container">
+    <div id="wrap">
+        <div class="container" style="padding-bottom: 60px">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="navbar navbar-default">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="<?php echo DIR  ?>">exQuizIt</a>
@@ -52,10 +56,10 @@
                         <div class="navbar-collapse collapse navbar-responsive-collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li style="line-height: 64px"><span style="color: #ffffff">Hallo, <?php echo $data['username'] ?></span></li>
-                                <li><a href="/profil?id=<?php echo $data['userID'] ?>"><span class="label label-info "><span class="glyphicon glyphicon-user"></span></span></a></li>
-                                <li><a href="/logout"><span class="label label-danger "><span class="glyphicon glyphicon-log-out"></span></span></a></li>
+                                <li><a href="/profil?id=<?php echo $data['userID'] ?>"><span class="label label-info "><span class="glyphicons user"></span> Profil</span></a></li>
+                                <li><a href="/logout"><span class="label label-danger "><span class="glyphicons log_out"></span> Logout</span></a></li>
                             </ul>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>

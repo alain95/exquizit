@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-3">
+    <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Punkte</h4></div>
             <div class="panel-body">
@@ -7,7 +7,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6 ">
+    <div class="col-md-6 ">
         <div class="panel panel-default">
              <div class="panel-body">
                     <h4><?php echo $data['question']->text; ?></h4>
@@ -18,7 +18,7 @@
             $i = 0;
             foreach($data['answers'] as $answer)
             {
-                echo '<div class="col-lg-6" style="margin-top:10px">
+                echo '<div class="col-md-6" style="margin-top:10px">
                         <button style="white-space: normal;" id="answer'.$answer->antwortID.'" value="'.$answer->antwortID.'" class="answer btn btn-lg btn-block btn-primary">'.$answer->text.'</button>
                       </div>';
                 $i++;
@@ -30,29 +30,29 @@
         ?>
         </div>
         <div style="margin-top: 23px" class="row" id="jokerButtons">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <button style="width: 80px;" title="Fifty Fifty Joker" id="fiftyfiftyJoker" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning" <?php echo $data['fiftyfifty']; ?>>50/50</button>
-                        <button style="width: 80px;" title="Überspringen Joker" id="skipQuestionJoker" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning" <?php echo $data['skip']; ?>><span class="glyphicon glyphicon-share-alt"></span></button>
+                        <button style="width: 80px;" title="Überspringen Joker" id="skipQuestionJoker" value="<?php echo$data['question']->frageID; ?>" class="btn btn-warning" <?php echo $data['skip']; ?>><span class="glyphicons share"></span></button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div id="gameButtons" class="col-lg-12 text-center">
-                <button id="finishGameBtn" value="<?php echo $data['spielID']; ?>" class="btn btn-lg btn-success">Quiz beenden</button>
+            <div id="gameButtons" class="col-md-12 text-center">
+                <button id="finishGameBtn" value="<?php echo $data['spielID']; ?>" class="btn btn-lg btn-info">Quiz beenden</button>
             </div>
-            <div style="display: none; margin-top:23px" id="nextRoundButton" class="col-lg-12 text-center">
-                <button onClick="location.reload();" class="btn btn-lg btn-primary">Nächste Frage</button>
+            <div style="display: none; margin-top:23px" id="nextRoundButton" class="col-md-12 text-center">
+                <button onClick="location.reload();" class="btn btn-lg btn-info">Nächste Frage</button>
             </div>
-            <div style="display: none; margin-top:23px" id="lostGame" class="col-lg-12 text-center">
+            <div style="display: none; margin-top:23px" id="lostGame" class="col-md-12 text-center">
                <div class="alert alert-danger">Das war leider falsch! Spiel verloren</div>
-                <button onclick="location.href='/quiz'" class="btn btn-lg btn-primary">Neues Spiel</button>
+                <button onclick="location.href='/quiz'" class="btn btn-lg btn-info">Neues Spiel</button>
             </div>
         </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Frage-Statistik</h4></div>
             <div class="panel-body text-center">

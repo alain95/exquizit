@@ -8,9 +8,9 @@
 
 ?>
 <div class="row" id="editQuestion" style="display: none">
-    <div class="col-lg-12">
+    <div class="col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-warning pull-right"><span class="glyphicon glyphicon-pencil"></span></span>Frage bearbeiten</h4></div>
+            <div class="panel-heading"><h4><span class="label label-warning pull-right"><span class=" -pencil"></span></span>Frage bearbeiten</h4></div>
             <div class="panel-body">
                 <form role="form" method="post" action="" id="updateQuestionForm" class="form-horizontal">
                     <input type="hidden" id="frageID" name="frageID" value=""/>
@@ -71,9 +71,9 @@
 </div>
 
 <div class="row" id="addQuestion">
-    <div class="col-lg-12">
+    <div class="col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-plus"></span></span>Frage hinzufügen</h4></div>
+            <div class="panel-heading"><h4><span class="label label-success pull-right"><span class="glyphicons plus"></span></span>Frage hinzufügen</h4></div>
             <div class="panel-body">
                 <form role="form" method="post" action="" class="form-horizontal">
                     <div class="form-group">
@@ -127,9 +127,9 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicon glyphicon-list"></span></span>Fragen</h4></div>
+            <div class="panel-heading"><h4><span class="label label-primary pull-right"><span class="glyphicons list"></span></span>Fragen</h4></div>
             <div class="panel-body">
                 <?php
                 if(isset($data['msg']))
@@ -166,17 +166,17 @@
                                     <td id="categoryQuestion'.$row->frageID.'" data-id="'.$row->kategorieID.'">'.$row->bezeichnung.'</td>
                                     <td style="text-align:center">
                                         <button id="showAnswers'.$row->frageID.'" value="'.$row->frageID.'" class="showAnswersButton btn btn-primary btn-xs">
-                                            <span class="glyphicon glyphicon-zoom-in"></span>
+                                            <span class="glyphicons zoom_in"></span>
                                         </button>
                                     </td>
                                      <td style="text-align:center">
                                         <button id="edit" name="edit" value="'.$row->frageID.'" class="editQuestionButton btn btn-warning btn-xs">
-                                            <span class="glyphicon glyphicon-pencil"></span>
+                                            <span class="glyphicons pencil"></span>
                                         </button>
                                     </td>
                                     <td style="text-align:center">
                                             <button name="delete" value="'.$row->frageID.'" class="deleteQuestionButton btn btn-danger btn-xs">
-                                                <span class="glyphicon glyphicon-trash"></span>
+                                                <span class="glyphicons bin"></span>
                                             </button>
                                     </td>
                                   </tr>
@@ -185,10 +185,10 @@
                                   <td><span style="color:#fff">Wirklich löschen?</span></td>
                                   <td></td>
                                   <td style="text-align:center"> <button id="edit" name="edit" value="'.$row->frageID.'" class="confirmDeleteQuestionButton btn btn-success btn-xs">
-                                            <span class="glyphicon glyphicon-ok"></span>
+                                            <span class="glyphicons ok_2"></span>
                                         </button></td>
                                   <td style="text-align:center"> <button id="edit" name="edit" value="'.$row->frageID.'" class="cancelDeleteQuestionButton btn btn-danger btn-xs">
-                                            <span class="glyphicon glyphicon-remove"></span>
+                                            <span class="glyphicons remove_2"></span>
                                         </button></td>
                                   </tr>
                                   <tr style="display:none" id="answersQuestion'.$row->frageID.'">
@@ -206,19 +206,19 @@
                               {
                                   if($answer->korrekt == 1)
                                   {
-                                      $glyphiconClass = 'glyphicon-ok';
+                                      $Class = 'glyphicons ok_2';
                                       $labelClass = 'label-success';
                                   }
                                   else
                                   {
-                                      $glyphiconClass = 'glyphicon-remove';
+                                      $Class = 'glyphicons remove_2';
                                       $labelClass = 'label-danger';
                                   }
                                   echo(
                                      ' <tr>
                                     <td>'.$answer->antwortID.'</td>
                                     <td id="answer'.$i.'question'.$answer->frageID.'" data-id="'.$answer->antwortID.'">'.$answer->text.'</td>
-                                    <td><span class="label '.$labelClass.'"><span class="glyphicon '.$glyphiconClass.'"></span></span></td>
+                                    <td><span class="label '.$labelClass.'"><span class=" '.$Class.'"></span></span></td>
                                     </tr>'
                                   );
                               }

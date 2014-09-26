@@ -89,7 +89,7 @@ $(document).ready(function(){
             data: { delete: true, id: id}
         }).done(function(data)
         {
-            $('#mainContainer').html(data);
+            $('body').html(data);
             })
     })
 
@@ -115,8 +115,8 @@ $(document).ready(function(){
         var selector = this.value;
         var selectorTitle = "#answersQuestion"+this.value;
 
-        $(this).children().toggleClass('glyphicon-zoom-in');
-        $(this).children().toggleClass('glyphicon-zoom-out');
+        $(this).children().toggleClass('-zoom-in');
+        $(this).children().toggleClass('-zoom-out');
         $(selectorTitle).toggle();
 
 

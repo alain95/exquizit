@@ -10,7 +10,7 @@ class category  extends \core\model {
     }
 
     public function getCategories(){
-        return $this->_db->select('SELECT kategorieID, bezeichnung FROM '.PREFIX.'kategorie');
+        return $this->_db->select('SELECT * FROM '.PREFIX.'kategorie ORDER BY bezeichnung');
     }
 
     public function  getRecentCategories(){

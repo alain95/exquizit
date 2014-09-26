@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Neueste Fragen <span class="label label-success pull-right">NEU</span></h4></div>
             <div class="panel-body">
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-4">
         <div class="panel panel-default">
             <div class="panel-heading"><h4>Neuste Kategorien <span class="label label-success pull-right">NEU</span></h4></div>
             <div class="panel-body">

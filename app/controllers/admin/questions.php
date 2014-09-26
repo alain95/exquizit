@@ -17,7 +17,7 @@ class Questions extends \core\controller{
 	}
  
 	public function index(){
-        if(Session::get('loggedIn') == false){
+        if(Session::get('userLoggedIn') == false){
             url::redirect('');
         }
 

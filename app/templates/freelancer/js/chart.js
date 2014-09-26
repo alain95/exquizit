@@ -43,7 +43,7 @@
 			animationSteps: 60,
 
 			// String - Animation easing effect
-			animationEasing: "easeOutQuart",
+			animationEasing: "easeInSine",
 
 			// Boolean - If we should show the scale at all
 			showScale: true,
